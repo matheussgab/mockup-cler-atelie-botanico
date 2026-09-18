@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#374336">
+  <meta name="description" content="Flores que guardam histórias. Arte que preserva memórias. Conheça a eternização de buquês e as criações autorais da Cler Ateliê Botânico.">
+  <title>Cler Ateliê Botânico</title>
+  <link rel="icon" href="Assets/logo.jpeg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS — Identidade, composições editoriais, componentes e responsividade. -->
+  <style>
+    :root{--ivory:#f7f3ea;--paper:#fcfaf5;--moss:#374336;--sage:#aab5a0;--taupe:#756f62;--gold:#a08a57;--line:rgba(55,67,54,.19);--serif:'Cormorant Garamond',Georgia,serif;--sans:'Manrope',Arial,sans-serif;--gutter:clamp(24px,5vw,80px);--header:94px}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header) + 20px)}
+    body{margin:0;max-width:100%;overflow-x:clip;background:var(--ivory);color:var(--moss);font-family:var(--sans);font-size:14px;line-height:1.8;-webkit-font-smoothing:antialiased}
+    body.locked{overflow:hidden}
+    button,input,select,textarea{font:inherit}
+    button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
+    button,a{touch-action:manipulation}
+    button{color:inherit;cursor:pointer}
+    button{background:none;border:0}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%;height:auto}
+    button:disabled{cursor:not-allowed;opacity:.5}
+    :focus-visible{outline:2px solid var(--gold);outline-offset:5px}
+    ::selection{color:var(--paper);background:var(--moss)}
+    [hidden]{display:none!important}
+    h1,h2,h3,p,figure{margin:0}
+    h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.06;letter-spacing:-.025em}
+    h2{font-size:clamp(40px,4.1vw,60px)}
+    h3{font-size:28px}
+    em{font-weight:400}
+    p{color:var(--taupe)}
+    .wrap{width:min(100% - var(--gutter)*2,1320px);margin-inline:auto}
+    .section{padding-block:112px}
+    .eyebrow{display:block;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.21em;line-height:1.6}
+    .eyebrow.line{display:flex;align-items:center;gap:16px}
+    .eyebrow.line::before{content:'';height:1px;width:32px;background:var(--gold);flex-shrink:0}
+    .muted{color:var(--taupe)}
+    .small{font-size:12px;line-height:1.7}
+    .serif{font-family:var(--serif)}
+    .btn{display:inline-flex;justify-content:center;align-items:center;gap:24px;min-height:50px;padding:15px 24px;border:1px solid var(--moss);border-radius:2px;font-size:10px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;line-height:1.5;transition:background .25s,color .25s,border-color .25s}
+    .btn-primary{color:var(--ivory);background:var(--moss)}
+    .btn-primary:hover{background:#4c5948;border-color:#4c5948}
+    .btn-outline:hover{background:var(--moss);color:var(--ivory)}
+    .btn-light{background:var(--ivory);border-color:var(--ivory);color:var(--moss)}
+    .btn-light:hover{background:#e7e5d9;border-color:#e7e5d9}
+    .text-link{display:inline-flex;align-items:center;gap:22px;min-height:44px;font-size:10px;letter-spacing:.13em;font-weight:600;text-transform:uppercase;border-bottom:1px solid var(--line);transition:gap .25s}
+    .text-link:hover{gap:30px}
+    .arrow{font-family:Arial,sans-serif;font-size:20px;font-weight:400;line-height:1;letter-spacing:0}
+    .icon-btn{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;position:relative;flex-shrink:0;border-radius:2px;transition:background .2s}
+    .icon-btn:hover{background:rgba(55,67,54,.07)}
+    .icon{display:inline-block;position:relative;flex-shrink:0}
+    .icon-instagram{width:18px;height:18px;border:1.4px solid currentColor;border-radius:5px}
+    .icon-instagram::before{content:'';position:absolute;width:8px;height:8px;border:1.3px solid currentColor;border-radius:50%;left:3.6px;top:3.6px}
+    .icon-instagram::after{content:'';position:absolute;right:2.5px;top:2.5px;background:currentColor;border-radius:50%;width:2.4px;height:2.4px}
+    .icon-bag{width:17px;height:18px;border:1.3px solid currentColor;border-radius:1px;margin-top:5px}
+    .icon-bag::before{content:'';position:absolute;width:8px;height:7px;border:1.3px solid currentColor;border-bottom:0;border-radius:7px 7px 0 0;left:3px;top:-7px}
+    .icon-close{width:18px;height:18px}
+    .icon-close::before,.icon-close::after{content:'';position:absolute;top:8px;left:0;width:19px;height:1px;background:currentColor;transform:rotate(45deg)}
+    .icon-close::after{transform:rotate(-45deg)}
+    .skip-link{position:fixed;left:20px;top:-100px;z-index:1000;background:var(--moss);color:var(--paper);padding:12px 20px}
+    .skip-link:focus{top:12px}
+    .photo{position:relative;overflow:hidden;background:#e8e4d8}
+    .photo>img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+    .photo:hover>img{transform:scale(1.025)}
+    /* Recorte apenas de apresentação: os arquivos originais permanecem intactos. */
+    .photo.crop-art>img{position:absolute;max-width:none;width:116.13%;height:auto;left:-8.06%;top:-19.35%}
+    .photo.crop-orchid>img{position:absolute;max-width:none;width:116.13%;height:auto;left:-8.06%;top:-8.6%}
+    .reveal{opacity:1;transform:none}
+    .motion .reveal{opacity:0;transform:translateY(22px);transition:opacity .85s ease,transform .85s ease}
+    .motion .reveal.visible{opacity:1;transform:none}
+    .site-header{height:var(--header);position:sticky;top:0;z-index:30;background:var(--ivory);border-bottom:1px solid transparent;transition:background .3s,border .3s}
+    .site-header.scrolled{background:rgba(247,243,234,.96);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
+    .header-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:25px}
+    .brand{display:inline-flex;align-items:center;gap:12px;flex-shrink:0}
+    .brand-mark{width:38px;height:47px;overflow:hidden;position:relative;mix-blend-mode:multiply}
+    .brand-mark img{position:absolute;width:146px;max-width:none;left:-55px;top:-7px}
+    .brand-word{display:flex;flex-direction:column;line-height:1}
+    .brand-word strong{font-family:var(--serif);font-size:41px;font-weight:500;letter-spacing:-.035em}
+    .brand-word small{font-size:7px;letter-spacing:.2em;text-transform:uppercase;margin-top:6px}
+    .desktop-nav{display:flex;align-items:center;gap:clamp(17px,2.3vw,34px)}
+    .desktop-nav a{font-size:11px;position:relative;white-space:nowrap}
+    .desktop-nav a::after{content:'';position:absolute;left:0;bottom:-7px;width:0;height:1px;background:var(--moss);transition:width .25s}
+    .desktop-nav a:hover::after{width:100%}
+    .header-actions{display:flex;align-items:center;gap:9px}
+    .header-cta{font-size:9px;padding:12px 18px;min-height:42px;margin-left:9px}
+    .bag-count{position:absolute;top:2px;right:0;min-width:15px;height:15px;line-height:15px;font-size:9px;border-radius:50%;background:var(--moss);color:var(--ivory)}
+    .menu-toggle{display:none}
+    .hamburger,.hamburger::after{height:1px;width:21px;background:currentColor;display:block;position:relative}
+    .hamburger::after{content:'';position:absolute;top:7px;width:15px;right:0}
+    .hero{display:grid;grid-template-columns:1.02fr 1fr;min-height:640px;position:relative}
+    .hero-copy{padding:66px 52px 40px max(var(--gutter),calc((100vw - 1320px)/2));display:flex;flex-direction:column;align-items:flex-start}
+    .hero h1{font-size:clamp(49px,4.85vw,74px);line-height:1.025;letter-spacing:-.045em;margin:31px 0 23px}
+    .hero h1 .line-break{display:block}
+    .hero h1 em{color:#68735d}
+    .hero-copy>p{max-width:380px;font-size:13px;line-height:1.95}
+    .hero-buttons{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-top:28px}
+    .hero-buttons .btn{gap:27px}
+    .hero-buttons .text-link{font-size:9px;border-bottom:0}
+    .scroll-hint{display:flex;align-items:center;gap:13px;font-size:8px;letter-spacing:.19em;text-transform:uppercase;margin-top:auto;padding-top:32px;color:var(--taupe)}
+    .scroll-hint span{display:block;width:1px;height:27px;background:var(--gold)}
+    .hero-visual{position:relative;min-width:0;margin-right:var(--gutter);margin-bottom:26px}
+    .hero-main{position:absolute;inset:0}
+    .hero-main img{object-position:53% 50%}
+    .hero-main::after{content:'';position:absolute;inset:55% 0 0;background:linear-gradient(transparent,rgba(21,32,20,.46))}
+    .hero-photo-note{position:absolute;bottom:34px;right:31px;z-index:1;color:var(--ivory);font-family:var(--serif);font-size:25px;line-height:1.2;text-align:right;font-style:italic}
+    .hero-inset{position:absolute;bottom:38px;left:-40px;width:160px;box-shadow:0 5px 22px #2221;background:var(--ivory);padding:8px}
+    .hero-inset .photo{aspect-ratio:1}
+    .hero-inset figcaption{font-size:7px;text-transform:uppercase;letter-spacing:.12em;text-align:center;padding:11px 0 4px}
+    .hero-side-label{position:absolute;right:-30px;top:29px;writing-mode:vertical-rl;font-size:8px;letter-spacing:.21em;text-transform:uppercase}
+    .hero-note{border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px;padding:21px 0;font-size:9px;letter-spacing:.14em;text-transform:uppercase}
+    .hero-note span:nth-child(2){font-family:var(--serif);font-style:italic;font-size:19px;letter-spacing:0;text-transform:none}
+    .manifesto{display:grid;grid-template-columns:1fr 210px;gap:100px;align-items:center;padding-block:110px}
+    .manifesto h2{font-size:clamp(36px,3.55vw,53px);line-height:1.16;max-width:830px;margin-top:24px}
+    .manifesto h2 em{color:#748066}
+    .manifesto p{max-width:590px;margin-top:26px;font-size:13px}
+    .manifesto-image{position:relative;padding-top:28px}
+    .manifesto-image .photo{height:248px}
+    .manifesto-image figcaption{font-family:var(--serif);font-style:italic;text-align:center;font-size:18px;margin-top:14px}
+    .edition-no{position:absolute;left:-31px;top:0;font-family:var(--serif);font-size:26px;color:var(--gold)}
+    .preservation{background:var(--moss);color:var(--ivory);padding-block:92px}
+    .preservation-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(55px,8vw,120px);align-items:center}
+    .preservation-art{position:relative;margin-right:23px}
+    .preservation-art>.photo{aspect-ratio:1}
+    .preservation-art figcaption{display:flex;justify-content:space-between;font-size:8px;letter-spacing:.13em;text-transform:uppercase;margin-top:19px;color:#d2d6c8}
+    .preservation .eyebrow{color:#c7cbb9}
+    .preservation h2{margin:24px 0;font-size:clamp(43px,4.5vw,64px)}
+    .preservation h2 em{color:#c3ccb5}
+    .preservation p{color:#d3d6cd;font-size:13px;max-width:407px}
+    .possibilities{margin:28px 0 31px;border-top:1px solid #c7cbb940;border-bottom:1px solid #c7cbb940;padding:16px 0;font-size:10px;line-height:2.2;letter-spacing:.025em;color:#d9decf}
+    .preservation .small{display:block;font-size:10px;margin-top:15px;color:#c7cbb9}
+    .section-heading{display:flex;justify-content:space-between;gap:45px;align-items:flex-end;margin-bottom:47px}
+    .section-heading h2{margin-top:17px}
+    .section-heading>p{max-width:290px;font-size:12px;margin-bottom:6px}
+    .process-intro h2{max-width:600px}
+    .process{display:grid;grid-template-columns:repeat(6,1fr);margin:57px 0 0;padding:0;list-style:none}
+    .process li{position:relative;padding:0 21px 0 0}
+    .process li::before{content:'';position:absolute;top:73px;left:0;right:0;height:1px;background:var(--line)}
+    .process li::after{content:'';position:absolute;top:70px;left:0;width:7px;height:7px;border-radius:50%;background:var(--sage)}
+    .process-number{font-family:var(--serif);font-size:49px;line-height:1;color:#909b80;display:block;margin-bottom:50px}
+    .process h3{font-family:var(--sans);font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-bottom:14px}
+    .process p{font-size:11px;line-height:1.85}
+    .gallery-section{padding-top:25px;padding-bottom:108px}
+    .gallery{display:grid;grid-template-columns:1.06fr .87fr 1.07fr;gap:27px}
+    .gallery-col{display:flex;flex-direction:column;gap:28px}
+    .gallery-col:nth-child(2){padding-top:75px}
+    .gallery-col:nth-child(3){padding-top:30px}
+    .gallery-item button{display:block;padding:0;width:100%;text-align:left}
+    .gallery-item .photo{height:300px}
+    .gallery-item.tall .photo{height:402px}
+    .gallery-item.short .photo{height:245px}
+    .gallery-item .crop-art{height:auto;aspect-ratio:1}
+    .gallery-item figcaption{display:flex;justify-content:space-between;font-size:9px;letter-spacing:.06em;margin-top:12px;color:var(--taupe)}
+    .gallery-item button:hover .photo>img{transform:scale(1.025)}
+    .gallery-item button:focus-visible{outline-offset:7px}
+    .gallery-footer{text-align:center;margin-top:42px}
+    .gallery-footer p{font-family:var(--serif);font-style:italic;font-size:25px;color:#788067}
+    .story-section{background:#ecebdf;padding-block:90px}
+    .story-layout{display:grid;grid-template-columns:1fr .9fr;gap:100px;align-items:center}
+    .story-copy h2{margin:22px 0 28px;max-width:500px}
+    .story-copy p{max-width:440px;font-size:13px;margin-top:17px}
+    .story-copy .text-link{margin-top:24px}
+    .story-visual{position:relative;padding:0 0 29px 36px}
+    .story-visual::before{content:'';position:absolute;inset:29px 31px 0 0;border:1px solid #8c987759}
+    .story-visual .photo{aspect-ratio:.95;background:var(--ivory)}
+    .story-visual .photo img{position:absolute;max-width:none;width:100%;height:auto;top:-83%;object-fit:initial}
+    .story-caption{position:absolute;left:59px;bottom:50px;background:var(--ivory);padding:15px 22px;font-family:var(--serif);font-size:23px;font-style:italic}
+    .pillars{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line);padding:52px 0;gap:60px}
+    .pillar{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start}
+    .pillar>span{font-family:var(--serif);font-size:17px;color:var(--gold);margin-top:5px}
+    .pillar h3{font-size:30px;margin-bottom:9px}
+    .pillar p{font-size:11px;max-width:260px}
+    .collections .section-heading h2{max-width:730px}
+    .collection-tools{display:flex;align-items:center;justify-content:space-between;gap:25px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:38px 0 35px}
+    .filters{display:flex;gap:27px}
+    .filter-btn{min-height:57px;padding:0;position:relative;font-size:10px;color:var(--taupe)}
+    .filter-btn[aria-pressed=true]{color:var(--moss);font-weight:700}
+    .filter-btn[aria-pressed=true]::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--moss)}
+    .collection-count{font-size:10px;color:var(--taupe)}
+    .products-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:42px 23px}
+    .product-card{min-width:0}
+    .product-card>button{display:block;text-align:left;width:100%;padding:0}
+    .product-image{aspect-ratio:.83;position:relative;overflow:hidden;background:#e9e5db}
+    .product-image>img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+    .product-card button:hover .product-image>img{transform:scale(1.035)}
+    .product-open{position:absolute;right:12px;bottom:12px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:var(--ivory);font-size:21px;transition:background .2s,color .2s}
+    .product-card button:hover .product-open{background:var(--moss);color:var(--ivory)}
+    .product-category{font-size:8px;text-transform:uppercase;letter-spacing:.13em;color:var(--taupe);margin:16px 0 5px;display:block}
+    .product-card h3{font-size:24px;line-height:1.1;letter-spacing:-.02em}
+    .product-price{font-size:11px;margin-top:11px;display:block}
+    .collection-invite{border:1px solid var(--line);padding:32px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;background:#eeeede;min-height:300px}
+    .collection-invite .brand-mark{margin-bottom:22px}
+    .collection-invite h3{font-size:34px;line-height:1.12;margin-bottom:17px}
+    .collection-invite p{font-size:11px}
+    .collection-invite .text-link{margin-top:20px;font-size:8px;gap:10px}
+    .collection-footnote{font-size:10px;margin-top:28px;color:var(--taupe)}
+    .instagram-section{padding-block:70px 85px;background:#eeece2}
+    .instagram-heading{display:flex;justify-content:space-between;align-items:center;gap:30px;margin-bottom:33px}
+    .instagram-heading h2{font-size:46px;margin-top:10px}
+    .instagram-account{display:flex;align-items:center;gap:12px;font-size:11px}
+    .instagram-feed{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .instagram-feed a{aspect-ratio:1;display:block}
+    .instagram-feed .photo{height:100%}
+    .instagram-bottom{display:flex;justify-content:space-between;align-items:center;gap:25px;margin-top:23px}
+    .instagram-bottom p{font-family:var(--serif);font-size:23px;font-style:italic}
+    .faq-layout{display:grid;grid-template-columns:.78fr 1.22fr;gap:90px}
+    .faq-intro h2{margin:20px 0 21px;font-size:51px}
+    .faq-intro p{font-size:12px;max-width:230px}
+    .faq-intro .text-link{margin-top:23px}
+    .faq-list{border-top:1px solid var(--line)}
+    .faq-list details{border-bottom:1px solid var(--line)}
+    .faq-list summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:22px;min-height:74px;padding:19px 0;font-size:12px;font-weight:500}
+    .faq-list summary::-webkit-details-marker{display:none}
+    .faq-list summary::after{content:'+';font-family:var(--serif);font-size:26px;font-weight:400;flex-shrink:0}
+    .faq-list details[open] summary::after{content:'−'}
+    .faq-list details p{padding:0 32px 25px 0;font-size:12px;max-width:610px}
+    .contact-section{background:var(--moss);text-align:center;color:var(--ivory);padding:85px var(--gutter) 92px;position:relative}
+    .contact-section .eyebrow{color:#c9cebb}
+    .contact-section h2{font-size:clamp(40px,4.7vw,65px);max-width:960px;margin:24px auto}
+    .contact-section h2 em{color:#bdc8ad}
+    .contact-section p{font-size:12px;color:#d4d8cc}
+    .contact-actions{display:flex;align-items:center;justify-content:center;gap:28px;margin-top:32px}
+    .contact-actions .text-link{border-color:#e8ead450}
+    .footer-top{display:grid;grid-template-columns:1.2fr 1fr .8fr;gap:70px;padding-block:60px 52px}
+    .footer-brand>p{font-size:11px;max-width:250px;margin-top:19px}
+    .footer-nav{display:grid;grid-template-columns:1fr 1fr;gap:10px 30px;align-content:center}
+    .footer-nav a{font-size:11px}
+    .footer-nav a:hover{text-decoration:underline;text-underline-offset:5px}
+    .footer-social{align-self:center}
+    .footer-social .eyebrow{font-size:8px;margin-bottom:15px}
+    .footer-bottom{border-top:1px solid var(--line);padding:20px 0 23px;display:flex;justify-content:space-between;gap:25px;font-size:9px;color:var(--taupe)}
+    /* Modais nativos: isolamento do foco, Escape e conteúdo inerte ao fundo. */
+    dialog{color:var(--moss);border:0;border-radius:3px;padding:0;background:var(--ivory);width:min(950px,calc(100% - 48px));max-height:calc(100dvh - 48px);box-shadow:0 18px 100px #18231833;overscroll-behavior:contain}
+    dialog::backdrop{background:rgba(25,34,24,.5);backdrop-filter:blur(3px)}
+    dialog[open]{animation:dialog-in .25s ease-out}
+    @keyframes dialog-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    .dialog-close{position:absolute;right:12px;top:12px;z-index:4;background:var(--ivory)}
+    .dialog-title{font-size:38px}
+    .product-detail{display:grid;grid-template-columns:1fr 1fr}
+    .detail-photo{position:sticky;top:0;height:100%;min-height:550px}
+    .detail-photo img{position:absolute;width:100%;height:100%;object-fit:cover}
+    .detail-info{padding:48px 34px 32px}
+    .detail-info .eyebrow{font-size:8px;color:var(--taupe);padding-right:15px}
+    .detail-info h2{font-size:40px;line-height:1.05;margin:17px 0}
+    .detail-price{font-size:16px;display:block;margin-bottom:18px}
+    .detail-description{font-size:12px}
+    .detail-specs{margin:21px 0;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:11px}
+    .detail-specs div{display:flex;justify-content:space-between;gap:15px;padding:4px 0}
+    .detail-specs dt{color:var(--taupe)}
+    .detail-specs dd{margin:0;text-align:right;max-width:65%}
+    .purchase-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px;font-size:10px}
+    .quantity-control{display:inline-flex;align-items:center;border:1px solid var(--line);height:40px}
+    .quantity-control button{height:38px;width:38px;font-size:18px;line-height:1}
+    .quantity-control button:hover{background:#3743360d}
+    .quantity-control output{min-width:27px;font-size:12px;text-align:center}
+    .detail-actions{display:grid;gap:10px}
+    .shipping-calculator{border-top:1px solid var(--line);margin-top:25px;padding-top:22px}
+    .shipping-calculator label{display:block;font-size:9px;letter-spacing:.11em;font-weight:600;margin-bottom:11px}
+    .shipping-input{display:flex;gap:8px}
+    input,select,textarea{width:100%;min-width:0;border:1px solid #b8bdad;background:var(--paper);border-radius:2px;color:var(--moss);padding:11px 13px;font-size:12px;min-height:44px;transition:border .2s}
+    input::placeholder,textarea::placeholder{color:#858678;opacity:1}
+    input:focus,select:focus,textarea:focus{outline:2px solid #a08a5760;outline-offset:1px;border-color:var(--gold)}
+    textarea{resize:vertical;min-height:105px}
+    .shipping-input input{flex:1}
+    .shipping-input .btn{padding:10px 14px;min-height:44px;font-size:9px}
+    .shipping-result{margin-top:13px;font-size:11px}
+    .shipping-option{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);gap:14px}
+    .shipping-option span{color:var(--taupe);font-size:10px}
+    .simulation-note{display:block;font-size:9px;color:var(--taupe);margin-top:8px;line-height:1.65}
+    .error{color:#9b4934;font-size:11px}
+    .loading-dot{display:inline-block;width:13px;height:13px;border:1px solid var(--sage);border-top-color:var(--moss);border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:7px}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .drawer{margin:0 0 0 auto;height:100dvh;max-height:100dvh;width:min(460px,100%);border-radius:0}
+    .drawer[open]{animation:drawer-in .3s ease-out}
+    @keyframes drawer-in{from{transform:translateX(50px);opacity:.3}to{transform:translateX(0);opacity:1}}
+    .drawer-layout{min-height:100%;display:flex;flex-direction:column;padding:29px}
+    .drawer-heading{display:flex;align-items:center;justify-content:space-between;padding-bottom:25px;border-bottom:1px solid var(--line)}
+    .drawer-heading h2{font-size:34px}
+    .drawer-heading .eyebrow{font-size:8px;margin-top:7px}
+    .cart-items{flex:1}
+    .cart-item{display:grid;grid-template-columns:82px 1fr;gap:18px;padding:24px 0;border-bottom:1px solid var(--line)}
+    .cart-item img{width:82px;height:108px;object-fit:cover}
+    .cart-item h3{font-size:22px;line-height:1.1;margin:1px 0 6px}
+    .cart-item-price{font-size:11px}
+    .cart-item-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px}
+    .cart-item .quantity-control{height:33px}
+    .cart-item .quantity-control button{width:32px;height:31px}
+    .remove-item{font-size:9px;text-decoration:underline;text-underline-offset:3px;min-height:35px;padding:5px 0 5px 10px}
+    .cart-empty{text-align:center;padding:65px 18px}
+    .cart-empty .icon-bag{width:25px;height:29px;margin-bottom:23px}
+    .cart-empty .icon-bag::before{left:6px;width:10px}
+    .cart-empty h3{font-size:31px;margin-bottom:17px}
+    .cart-empty p{font-size:12px;margin-bottom:24px}
+    .cart-footer{padding-top:24px}
+    .cart-subtotal{display:flex;justify-content:space-between;font-size:14px;margin-bottom:5px}
+    .cart-footer>.small{font-size:10px;margin-bottom:21px}
+    .cart-footer .btn{width:100%}
+    .continue-shopping{display:block;text-align:center;width:100%;min-height:47px;font-size:9px;text-transform:uppercase;letter-spacing:.11em;margin-top:7px}
+    .toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:90;background:var(--moss);border:1px solid #c4cbb860;color:var(--ivory);box-shadow:0 5px 25px #0001;padding:14px 24px;font-size:12px;text-align:center;max-width:calc(100vw - 40px);width:max-content;transition:opacity .2s,transform .2s}
+    .toast.visible{opacity:1;transform:translate(-50%,0)}
+    .checkout-dialog{width:min(990px,calc(100% - 48px))}
+    .checkout-container{padding:39px}
+    .checkout-heading{margin-bottom:28px;padding-right:25px}
+    .checkout-heading h2{margin:8px 0 10px;font-size:43px}
+    .checkout-heading p{font-size:11px}
+    .checkout-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:38px;align-items:start}
+    fieldset{border:0;padding:0;margin:0 0 25px;min-width:0}
+    legend{padding:0 0 13px;font-family:var(--serif);font-size:26px}
+    .fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .field.full{grid-column:1/-1}
+    .field label{display:block;font-size:10px;margin-bottom:5px}
+    .field .optional{color:var(--taupe);font-size:9px;font-weight:400}
+    .choice{display:flex;align-items:center;gap:11px;min-height:46px;padding:12px;border:1px solid var(--line);font-size:11px;margin-bottom:9px;cursor:pointer;background:var(--paper)}
+    .choice:has(input:checked){border-color:var(--moss);background:#e6e9dc}
+    .choice input{width:15px;min-height:15px;height:15px;padding:0;accent-color:var(--moss);flex-shrink:0}
+    .choice span{flex:1}
+    .choice small{display:block;color:var(--taupe);font-size:9px}
+    .choice strong{font-size:11px;font-weight:500}
+    .checkout-summary{background:#eeede1;padding:25px;position:sticky;top:0}
+    .checkout-summary h3{font-size:29px;margin-bottom:21px}
+    .summary-product{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:11px;margin-bottom:18px;font-size:10px}
+    .summary-product img{width:42px;height:53px;object-fit:cover}
+    .summary-product small{display:block;color:var(--taupe)}
+    .summary-totals{border-top:1px solid var(--line);padding-top:17px;margin-top:22px}
+    .summary-totals>div{display:flex;justify-content:space-between;gap:12px;font-size:11px;margin-bottom:12px}
+    .summary-totals .grand-total{font-size:16px;border-top:1px solid var(--line);padding-top:15px;margin-top:17px}
+    .checkout-summary .btn{width:100%;font-size:9px;margin-top:12px}
+    .mock-card{background:var(--paper);padding:15px;border:1px dashed var(--line);margin-bottom:15px}
+    .mock-card .card-fields{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.06em;color:var(--taupe);padding-block:8px}
+    .mock-card>p{font-size:9px}
+    .success-content{text-align:center;padding:72px 32px;max-width:650px;margin:auto}
+    .success-symbol{display:flex;justify-content:center;align-items:center;width:56px;height:56px;border:1px solid var(--sage);border-radius:50%;font-size:22px;margin:0 auto 27px}
+    .success-content h2{font-size:43px;margin:18px 0}
+    .success-content p{font-size:13px;max-width:400px;margin:auto}
+    .success-content .btn{margin-top:29px}
+    .contact-dialog{width:min(630px,calc(100% - 40px))}
+    .contact-dialog-content{padding:44px}
+    .contact-dialog-content h2{font-size:43px;margin:15px 0 18px}
+    .contact-dialog-content>p{font-size:12px;margin-bottom:24px}
+    .contact-dialog-content form .btn{margin-top:21px;width:100%}
+    .contact-dialog-content .simulation-note{margin-top:13px}
+    .contact-result{padding-top:28px}
+    .contact-result p{font-size:12px;margin-bottom:20px}
+    .contact-result blockquote{margin:0 0 20px;padding:20px;border-left:2px solid var(--sage);background:#edeee2;font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}
+    .contact-result .btn{width:100%;margin-top:10px}
+    .lightbox{width:min(880px,calc(100% - 40px));background:var(--ivory);padding:20px}
+    .lightbox img{max-height:76dvh;margin:auto;object-fit:contain;width:auto}
+    .lightbox figcaption{text-align:center;font-size:12px;padding:18px 30px 4px}
+    .mobile-nav{padding:80px 30px 40px;min-height:100%;display:flex;flex-direction:column}
+    .mobile-nav .brand{margin-bottom:37px}
+    .mobile-nav nav{display:flex;flex-direction:column;gap:17px}
+    .mobile-nav nav a{font-family:var(--serif);font-size:35px;line-height:1.5}
+    .mobile-nav nav a small{font-family:var(--sans);font-size:9px;color:var(--taupe);margin-right:18px}
+    .mobile-nav>.btn{margin-top:35px}
+    .mobile-nav>.instagram-account{margin-top:auto;padding-top:35px;font-size:10px}
+    @media(min-width:1600px){.hero{min-height:720px}.hero-visual{margin-right:max(var(--gutter),calc((100vw - 1320px)/2))}.hero-copy{padding-top:83px}}
+    @media(max-width:1200px){.desktop-nav{gap:19px}.desktop-nav a{font-size:10px}.header-actions{gap:1px}.header-cta{padding:12px;font-size:8px;margin-left:5px}.brand{gap:8px}.brand-word strong{font-size:36px}.hero{min-height:600px}.hero-copy{padding-right:35px;padding-top:50px}.hero h1{font-size:clamp(46px,5.1vw,62px)}.hero-inset{width:135px;left:-25px}.hero-photo-note{font-size:22px;right:20px}.manifesto{gap:65px}.preservation-layout{gap:60px}.story-layout{gap:65px}.process li{padding-right:16px}.products-grid{gap:35px 18px}.product-card h3{font-size:22px}.collection-invite{padding:24px}.collection-invite h3{font-size:30px}.faq-layout{gap:55px}.footer-top{gap:40px}}
+    @media(max-width:1024px){:root{--header:82px;--gutter:35px}.desktop-nav{gap:17px}.header-actions>.instagram-link{display:none}.header-cta{display:none}.hero{min-height:595px}.hero h1{font-size:54px}.hero-copy{padding-top:44px;padding-right:38px}.hero-copy>p{font-size:12px}.hero-buttons .btn{font-size:9px;padding:15px 18px;gap:18px}.hero-visual{margin-bottom:23px}.hero-photo-note{font-size:20px;bottom:33px}.hero-inset{width:117px;bottom:41px}.section{padding-block:85px}.manifesto{padding-block:85px;grid-template-columns:1fr 170px;gap:45px}.manifesto h2{font-size:38px}.manifesto-image .photo{height:220px}.preservation{padding-block:75px}.preservation-layout{gap:40px}.preservation-art{margin-right:10px}.preservation h2{font-size:47px}.preservation .btn{font-size:9px;padding-inline:15px;gap:18px}.process{grid-template-columns:repeat(3,1fr);row-gap:40px}.process-number{font-size:44px}.process li{padding-right:32px}.process p{font-size:12px}.gallery-item.tall .photo{height:335px}.gallery-item .photo{height:255px}.gallery-item.short .photo{height:210px}.gallery-item .crop-art{height:auto}.gallery{gap:20px}.gallery-col{gap:24px}.story-layout{gap:45px}.story-copy h2{font-size:45px}.story-visual{padding-left:23px}.story-caption{left:39px;font-size:19px;padding:13px 15px}.pillars{gap:30px}.pillar{gap:13px}.products-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.collection-invite{min-height:360px}.instagram-heading h2{font-size:41px}.faq-intro h2{font-size:45px}.footer-top{grid-template-columns:1fr 1fr;row-gap:35px}.footer-social{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between}.footer-social .eyebrow{margin:0}}
+    @media(max-width:800px){:root{--header:80px;--gutter:28px}.desktop-nav{display:none}.header-actions>.instagram-link{display:inline-flex}.menu-toggle{display:inline-flex}.header-actions{gap:6px}.hero{min-height:590px;grid-template-columns:1.05fr 1fr}.hero h1{font-size:46px}.hero-copy{padding-top:37px;padding-right:23px}.hero-copy>.eyebrow{font-size:8px;letter-spacing:.15em;gap:10px}.hero-copy>.eyebrow::before{width:20px}.hero h1{margin-top:27px}.hero-buttons .btn{font-size:8px;gap:12px;padding-inline:14px}.hero-main img{object-position:49% center}.hero-photo-note{font-size:18px;right:15px;bottom:190px}.hero-inset{width:118px;left:16px;bottom:30px}.hero-side-label{right:-21px;font-size:7px}.hero-note{font-size:8px;letter-spacing:.08em}.hero-note span:nth-child(2){font-size:16px}.manifesto{grid-template-columns:1fr 150px;gap:32px}.manifesto h2{font-size:36px}.manifesto-image .photo{height:205px}.manifesto p{font-size:12px}.preservation-layout{grid-template-columns:.95fr 1.05fr;gap:30px}.preservation h2{font-size:41px}.preservation p{font-size:12px}.preservation .btn{font-size:8px;gap:12px}.preservation-art figcaption{font-size:7px}.section-heading{gap:25px}.section-heading h2{font-size:43px}.section-heading>p{max-width:205px;font-size:11px}.gallery{gap:16px}.gallery-item.tall .photo{height:280px}.gallery-item .photo{height:200px}.gallery-item.short .photo{height:160px}.gallery-item .crop-art{height:auto}.gallery-item figcaption{font-size:8px}.gallery-col:nth-child(2){padding-top:50px}.story-layout{gap:30px}.story-copy h2{font-size:40px}.story-copy p{font-size:12px}.story-visual .photo{aspect-ratio:.75}.story-visual .photo img{top:-56%;height:160%;object-fit:cover;object-position:bottom}.story-caption{font-size:18px;left:34px;right:13px;bottom:44px;padding:12px}.pillars{gap:24px}.pillar{display:block}.pillar>span{font-size:12px}.pillar h3{font-size:28px;margin-top:8px}.pillar p{font-size:10px}.products-grid{gap:30px 17px}.product-card h3{font-size:23px}.collection-invite{padding:20px;min-height:290px}.collection-invite h3{font-size:29px}.collection-invite .text-link{font-size:7px;gap:8px}.instagram-feed{gap:8px}.instagram-heading h2{font-size:37px}.faq-layout{grid-template-columns:.7fr 1.3fr;gap:40px}.faq-intro h2{font-size:39px}.faq-list summary{font-size:11px}.footer-nav{column-gap:15px}.product-detail{grid-template-columns:.9fr 1.1fr}.detail-info{padding:46px 24px 25px}.detail-info h2{font-size:35px}.checkout-container{padding:33px 25px}.checkout-grid{grid-template-columns:1.1fr 1fr;gap:23px}.checkout-summary{padding:20px}.summary-product{grid-template-columns:36px 1fr;gap:9px}.summary-product img{grid-row:span 2}.summary-product>strong{grid-column:2;font-size:10px}.summary-product{row-gap:0}}
+    @media(max-width:600px){:root{--header:74px;--gutter:24px}.header-actions>.instagram-link{display:none}.header-actions{gap:8px}.brand-mark{width:33px;height:41px}.brand-mark img{width:129px;left:-49px;top:-6px}.brand-word strong{font-size:34px}.brand-word small{font-size:6px}.hero{display:flex;flex-direction:column;min-height:0}.hero-copy{padding:35px var(--gutter) 36px}.hero-copy>.eyebrow{font-size:8px;letter-spacing:.16em}.hero h1{font-size:clamp(44px,11.9vw,63px);line-height:1.02;margin:25px 0 23px;letter-spacing:-.04em}.hero-copy>p{font-size:12px;max-width:360px;line-height:1.85}.hero-buttons{margin-top:25px;gap:7px;width:100%}.hero-buttons .btn{font-size:9px;gap:25px;padding:16px 21px}.hero-buttons .text-link{font-size:8px}.scroll-hint{display:none}.hero-visual{height:395px;flex-shrink:0;margin:0 var(--gutter) 32px 38px}.hero-main img{object-position:50% 52%}.hero-inset{width:117px;left:-15px;bottom:21px}.hero-photo-note{font-size:21px;right:18px;bottom:29px}.hero-side-label{right:-17px;top:12px;font-size:6px}.hero-note{padding:19px 0;justify-content:center;font-size:7px;letter-spacing:.1em;gap:17px}.hero-note span:nth-child(2){display:none}.hero-note span+span::before{content:'·';margin-right:17px}.section{padding-block:65px}.manifesto{padding-block:66px;display:grid;grid-template-columns:1fr 95px;column-gap:20px;row-gap:27px}.manifesto-copy{display:contents}.manifesto .eyebrow,.manifesto h2{grid-column:1/-1}.manifesto h2{font-size:37px;margin-top:-9px;line-height:1.1}.manifesto p{grid-column:1;font-size:11px;margin-top:0;align-self:center;line-height:1.85}.manifesto-image{grid-column:2;grid-row:3;padding:0}.manifesto-image .photo{height:132px}.manifesto-image figcaption{font-size:13px;margin-top:8px}.edition-no{display:none}.preservation{padding-block:59px}.preservation-layout{display:flex;flex-direction:column-reverse;gap:37px}.preservation-copy h2{font-size:47px;margin-top:20px;max-width:380px}.preservation p{font-size:12px;max-width:370px}.possibilities{font-size:10px;margin:23px 0 26px}.preservation .btn{font-size:9px;gap:24px;min-height:51px}.preservation-art{margin:0;width:100%}.preservation-art figcaption{font-size:8px}.section-heading{display:block;margin-bottom:33px}.section-heading h2{font-size:42px;line-height:1.05;margin-top:15px}.section-heading>p{max-width:300px;margin-top:22px;font-size:12px}.process{grid-template-columns:1fr;margin:37px 0 0;gap:0}.process li{padding:0 0 29px 69px;min-height:123px}.process li:last-child{min-height:0;padding-bottom:0}.process-number{position:absolute;left:0;top:0;font-size:34px;margin:0}.process li::before{top:39px;bottom:-1px;left:18px;right:auto;width:1px;height:auto}.process li:last-child::before{display:none}.process li::after{top:45px;left:15px;width:7px;height:7px}.process h3{padding-top:4px;font-size:10px;margin-bottom:11px}.process p{font-size:12px;max-width:310px}.gallery-section{padding-top:10px;padding-bottom:65px}.gallery{grid-template-columns:1fr 1fr;gap:20px 15px}.gallery-col{display:contents}.gallery-item.tall .photo{height:260px}.gallery-item .photo{height:208px}.gallery-item.short .photo{height:208px}.gallery-item .crop-art{height:auto;aspect-ratio:1}.gallery-item:nth-child(2){margin-top:0}.gallery-col:nth-child(2) .gallery-item:first-child{margin-top:0}.gallery .gallery-col:nth-child(1) .gallery-item:nth-child(2){padding-top:40px}.gallery .gallery-col:nth-child(2) .gallery-item:nth-child(2){padding-top:25px}.gallery .gallery-col:nth-child(3) .gallery-item:nth-child(2){padding-top:30px}.gallery-item figcaption{font-size:8px;gap:8px;line-height:1.5}.gallery-footer{margin-top:30px}.gallery-footer p{font-size:22px}.story-section{padding-block:59px}.story-layout{grid-template-columns:1fr;gap:34px}.story-copy h2{font-size:45px;max-width:360px}.story-copy p{font-size:12px;max-width:380px}.story-visual{width:min(100%,380px);margin:auto;padding-left:23px}.story-visual .photo{aspect-ratio:1}.story-visual .photo img{width:100%;height:auto;top:-86%;object-fit:initial}.story-caption{left:40px;right:auto;bottom:46px;font-size:23px;padding:13px 18px}.pillars{display:block;padding-block:15px}.pillar{display:grid;grid-template-columns:24px 1fr;gap:16px;padding:24px 0;border-bottom:1px solid var(--line)}.pillar:last-child{border-bottom:0}.pillar>span{font-size:16px;margin-top:4px}.pillar h3{font-size:29px;margin:0 0 7px}.pillar p{font-size:11px;max-width:300px}.collections .section-heading h2{font-size:40px}.collection-tools{display:block;margin-top:29px;margin-bottom:26px}.filters{gap:24px;justify-content:flex-start}.filter-btn{font-size:10px;min-height:53px}.collection-count{display:none}.products-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 15px}.product-image{aspect-ratio:.78}.product-category{font-size:7px;letter-spacing:.1em;margin-top:12px}.product-card h3{font-size:23px;line-height:1.1}.product-price{font-size:11px;margin-top:9px}.product-open{width:30px;height:30px;right:8px;bottom:8px;font-size:19px}.collection-invite{padding:18px 14px;min-height:0}.collection-invite .brand-mark{margin-bottom:16px}.collection-invite h3{font-size:27px;margin-bottom:11px}.collection-invite p{font-size:10px;line-height:1.7}.collection-invite .text-link{font-size:7px;letter-spacing:.04em;gap:7px;margin-top:13px;flex-wrap:wrap;line-height:1.8}.collection-invite .arrow{font-size:17px}.collection-footnote{font-size:9px}.instagram-section{padding-block:48px}.instagram-heading{display:block;margin-bottom:25px}.instagram-heading h2{font-size:39px}.instagram-account{font-size:10px}.instagram-heading>.instagram-account{margin-top:18px}.instagram-feed{grid-template-columns:repeat(2,1fr);gap:11px}.instagram-feed a:last-child{display:none}.instagram-bottom{display:block;margin-top:25px}.instagram-bottom p{font-size:21px}.instagram-bottom .text-link{margin-top:13px;font-size:8px}.faq-layout{display:block}.faq-intro h2{font-size:44px;margin:17px 0}.faq-intro p{max-width:285px}.faq-intro .text-link{margin-top:13px}.faq-list{margin-top:30px}.faq-list summary{font-size:12px;min-height:74px}.faq-list details p{font-size:12px}.contact-section{padding:61px var(--gutter) 64px}.contact-section h2{font-size:42px;line-height:1.1;margin:25px auto}.contact-section p{max-width:260px;margin:auto}.contact-actions{flex-direction:column;gap:13px;margin-top:28px}.contact-actions .btn{font-size:9px}.contact-actions .text-link{font-size:9px}.footer-top{display:block;padding-block:40px 33px}.footer-brand>p{font-size:11px;margin-top:15px}.footer-nav{margin-top:33px;gap:13px 30px}.footer-social{display:block;margin-top:32px}.footer-social .eyebrow{margin-bottom:12px}.footer-bottom{font-size:8px;flex-direction:column;gap:4px;padding-block:18px}.drawer-layout{padding:24px}.drawer-heading h2{font-size:33px}.drawer{width:100%}.product-dialog{width:calc(100% - 24px);max-height:calc(100dvh - 24px)}.product-detail{display:block}.detail-photo{position:relative;height:310px;min-height:0}.detail-photo img{object-fit:contain;background:#e8e5d9}.detail-info{padding:26px 23px}.detail-info h2{font-size:37px;margin:12px 0}.detail-price{font-size:16px;margin-bottom:15px}.detail-info .eyebrow{font-size:8px}.detail-specs{margin:18px 0}.checkout-dialog{width:calc(100% - 20px);max-height:calc(100dvh - 20px)}.checkout-container{padding:33px 22px}.checkout-grid{grid-template-columns:1fr;gap:4px}.checkout-heading h2{font-size:39px}.checkout-heading{padding-right:18px}.checkout-summary{position:static;padding:23px}.summary-product{grid-template-columns:42px 1fr auto;gap:11px}.summary-product img{grid-row:auto}.summary-product>strong{grid-column:auto}.fields{gap:14px 11px}.field label{font-size:10px}input,select,textarea{font-size:16px;padding:10px 11px}.shipping-input input{font-size:14px}.shipping-input .btn{font-size:8px}.success-content{padding:58px 24px}.success-content h2{font-size:36px}.contact-dialog{width:calc(100% - 24px);max-height:calc(100dvh - 24px)}.contact-dialog-content{padding:37px 24px 28px}.contact-dialog-content h2{font-size:38px;padding-right:12px}.contact-dialog-content .fields{display:block}.contact-dialog-content .field{margin-top:13px}.lightbox{padding:12px}.lightbox figcaption{font-size:11px;padding-bottom:5px}.toast{bottom:15px;font-size:11px;padding:12px 17px}}
+    @media(max-width:480px){
+      :root{--gutter:20px}
+      .wrap{width:min(100% - var(--gutter)*2,1320px)}
+      .header-inner{gap:12px}
+      .hero-copy{padding-top:31px;padding-bottom:32px}
+      .hero h1{font-size:clamp(40px,11.5vw,51px)}
+      .hero-visual{height:clamp(330px,104vw,395px);margin-left:32px;margin-right:var(--gutter)}
+      .hero-photo-note{font-size:19px;right:14px}
+      .hero-note{gap:11px;white-space:nowrap}
+      .hero-note span+span::before{margin-right:11px}
+      .manifesto{grid-template-columns:1fr;row-gap:22px}
+      .manifesto p{grid-column:1;max-width:none}
+      .manifesto-image{grid-column:1;grid-row:auto;width:min(52%,170px);justify-self:end;margin-top:2px}
+      .manifesto-image .photo{height:auto;aspect-ratio:.74}
+      .preservation-copy h2{font-size:clamp(40px,11.3vw,47px)}
+      .section-heading h2,.collections .section-heading h2{font-size:clamp(37px,10.5vw,42px)}
+      .gallery{gap:18px 12px}
+      .story-visual .photo img{inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+      .story-caption{left:35px;right:14px;bottom:43px;font-size:clamp(18px,5.4vw,23px)}
+      .filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}
+      .filter-btn{width:100%;justify-content:flex-start;text-align:left}
+      .product-card h3{font-size:clamp(19px,5.5vw,23px)}
+      .instagram-account{max-width:100%;overflow-wrap:anywhere}
+      .faq-intro h2{font-size:clamp(39px,11vw,44px)}
+      .contact-section h2{font-size:clamp(37px,10.5vw,42px)}
+      .mobile-nav{padding:72px 24px 28px}
+      .mobile-nav nav a{font-size:clamp(30px,9vw,35px)}
+      .drawer-layout{padding:22px 20px}
+      .cart-item{grid-template-columns:72px minmax(0,1fr);gap:14px}
+      .cart-item img{width:72px;height:96px}
+      .cart-item-actions{align-items:flex-end}
+      .checkout-container{padding:31px 18px 24px}
+      .checkout-heading h2{font-size:36px}
+      .fields{grid-template-columns:1fr}
+      .field.full{grid-column:auto}
+      .checkout-summary{padding:20px 17px}
+      .summary-product{grid-template-columns:42px minmax(0,1fr);align-items:start}
+      .summary-product>strong{grid-column:2}
+      .contact-dialog-content{padding:34px 20px 25px}
+      .contact-dialog-content h2{font-size:35px}
+    }
+    @media(max-width:360px){
+      :root{--gutter:18px}
+      .brand{gap:6px}
+      .brand-word strong{font-size:31px}
+      .brand-word small{letter-spacing:.14em}
+      .header-actions{gap:2px}
+      .hero-copy>.eyebrow{letter-spacing:.12em}
+      .hero h1{font-size:40px}
+      .hero-buttons .btn{width:100%;justify-content:space-between;gap:12px;padding-inline:17px}
+      .hero-visual{height:338px;margin-left:28px}
+      .hero-inset{width:104px}
+      .hero-photo-note{font-size:18px}
+      .hero-note{font-size:6.5px;letter-spacing:.07em}
+      .manifesto h2{font-size:34px}
+      .preservation .btn{width:100%;justify-content:space-between;gap:12px;padding-inline:16px}
+      .gallery{grid-template-columns:1fr}
+      .gallery .gallery-col .gallery-item{padding-top:0!important}
+      .gallery-item .photo,.gallery-item.short .photo,.gallery-item.tall .photo{height:auto;aspect-ratio:1/.86}
+      .gallery-item .crop-art{aspect-ratio:1}
+      .products-grid{grid-template-columns:1fr;gap:30px}
+      .product-image{aspect-ratio:.9}
+      .collection-invite{min-height:250px;padding:26px 22px}
+      .collection-invite h3{font-size:30px}
+      .collection-invite .text-link{font-size:8px;letter-spacing:.08em}
+      .footer-nav{column-gap:18px}
+      .mobile-nav nav{gap:12px}
+      .mobile-nav nav a{font-size:29px}
+      .cart-item-actions{align-items:flex-start;flex-direction:column}
+      .remove-item{padding-left:0}
+      .shipping-input{align-items:stretch;flex-direction:column}
+      .shipping-input .btn{width:100%}
+      .summary-product{grid-template-columns:38px minmax(0,1fr)}
+      .summary-product img{width:38px;height:49px}
+      .choice{align-items:flex-start}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.motion .reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <!-- HTML — Toda fotografia e a identidade original vêm da pasta Assets. -->
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#inicio" aria-label="Cler Ateliê Botânico — início">
+        <span class="brand-mark"><img src="Assets/logo.jpeg" alt="" width="1497" height="1233"></span>
+        <span class="brand-word"><strong>Cler</strong><small>Ateliê Botânico</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <a href="#eternizacao">Eternização</a><a href="#colecoes">Coleções</a><a href="#como-funciona">Como funciona</a><a href="#nossa-historia">Nossa história</a><a href="#faq">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <a class="icon-btn instagram-link" href="https://www.instagram.com/clerateliebotanico" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Cler (abre em nova aba)"><span class="icon icon-instagram" aria-hidden="true"></span></a>
+        <button class="icon-btn" id="open-cart" aria-label="Abrir sacola, 0 itens" aria-haspopup="dialog"><span class="icon icon-bag" aria-hidden="true"></span><span class="bag-count" id="bag-count" aria-hidden="true">0</span></button>
+        <a class="btn btn-primary header-cta" href="#contato">Eternize suas flores <span class="arrow" aria-hidden="true">↗</span></a>
+        <button class="icon-btn menu-toggle" id="open-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu"><span class="hamburger" aria-hidden="true"></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <span class="eyebrow line">Preservação botânica de memórias</span>
+        <h1 id="hero-title"><span class="line-break">Flores que</span><span class="line-break"><em>guardam histórias.</em></span><span class="line-break">Arte que preserva</span><span class="line-break"><em>memórias.</em></span></h1>
+        <p>Transformamos flores carregadas de significado em obras botânicas únicas, criadas artesanalmente para atravessar o tempo.</p>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="#eternizacao">Quero eternizar meu buquê <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="text-link" href="#colecoes">Conheça as criações <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+        <a class="scroll-hint" href="#manifesto"><span aria-hidden="true"></span>Há histórias para descobrir</a>
+      </div>
+      <div class="hero-visual">
+        <div class="photo hero-main"><img src="Assets/image-1.jpeg" width="883" height="670" alt="Noiva com vestido de renda segurando um buquê de flores rosadas e folhagens" fetchpriority="high"></div>
+        <p class="hero-photo-note">O instante passa.<br>O significado permanece.</p>
+        <figure class="hero-inset"><div class="photo crop-art"><img src="Assets/image-7.jpeg" width="1080" height="1350" alt="Rosas e orquídeas de um buquê preservadas em uma composição de resina"></div><figcaption>Uma nova forma de lembrar</figcaption></figure>
+        <span class="hero-side-label">Natureza, memória & arte</span>
+      </div>
+    </section>
+    <div class="wrap hero-note"><span>Flores reais. Histórias únicas.</span><span>O que é especial merece permanecer.</span><span>Criação artesanal & autoral</span></div>
+
+    <section class="wrap manifesto" id="manifesto" aria-labelledby="manifesto-title">
+      <div class="manifesto-copy reveal"><span class="eyebrow">O que nos move</span><h2 id="manifesto-title">Existem flores que enfeitam um momento.<br>Outras se tornam <em>parte da nossa história.</em></h2><p>Um casamento, uma celebração, a lembrança de alguém. Há flores que carregam muito mais do que beleza. Na Cler, cuidamos delas com o mesmo respeito com que você viveu esse momento.</p></div>
+      <figure class="manifesto-image reveal"><span class="edition-no" aria-hidden="true">01.</span><div class="photo"><img src="Assets/image-4.jpeg" width="953" height="1319" alt="Girassol natural preservado em uma peça transparente de resina" loading="lazy"></div><figcaption>Para além do instante.</figcaption></figure>
+    </section>
+
+    <section class="preservation" id="eternizacao" aria-labelledby="preservation-title">
+      <div class="wrap preservation-layout">
+        <figure class="preservation-art reveal"><div class="photo crop-art"><img src="Assets/image-7.jpeg" width="1080" height="1350" alt="Composição autoral com rosas amarelas e orquídeas brancas de um buquê eternizado" loading="lazy"></div><figcaption><span>Flores de um dia inesquecível</span><span>Preservadas pela Cler</span></figcaption></figure>
+        <div class="preservation-copy reveal"><span class="eyebrow line">Eternização de buquês</span><h2 id="preservation-title">Seu buquê não precisa terminar <em>naquele dia.</em></h2><p>Depois da celebração, suas flores podem ganhar uma nova forma e continuar contando a história daquele momento.</p><p style="margin-top:15px">A partir das suas flores, desenhamos uma criação só sua. Uma composição que respeita a natureza e o significado de cada detalhe.</p><div class="possibilities">Composições em resina · Obras botânicas<br>Peças decorativas · Biojoias · Lembranças personalizadas</div><button class="btn btn-light" data-contact="Eternização de buquê">Quero preservar minhas flores <span class="arrow" aria-hidden="true">↗</span></button><span class="small">Cada história recebe um projeto individual.</span></div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="como-funciona" aria-labelledby="process-title">
+      <div class="section-heading process-intro reveal"><div><span class="eyebrow">O tempo e o cuidado de cada etapa</span><h2 id="process-title">Do momento <em>à memória.</em></h2></div><p>Um processo sensível, pensado para respeitar suas flores e a história que elas carregam.</p></div>
+      <ol class="process">
+        <li class="reveal"><span class="process-number" aria-hidden="true">01</span><h3>Conversa</h3><p>Conhecemos sua história e entendemos o que você deseja preservar.</p></li>
+        <li class="reveal"><span class="process-number" aria-hidden="true">02</span><h3>Avaliação</h3><p>Analisamos as flores e os elementos naturais para identificar as melhores possibilidades.</p></li>
+        <li class="reveal"><span class="process-number" aria-hidden="true">03</span><h3>Projeto</h3><p>Definimos formato, composição e detalhes da peça.</p></li>
+        <li class="reveal"><span class="process-number" aria-hidden="true">04</span><h3>Preservação</h3><p>Cada elemento passa pelo processo adequado de preservação.</p></li>
+        <li class="reveal"><span class="process-number" aria-hidden="true">05</span><h3>Criação</h3><p>A peça é produzida artesanalmente, respeitando cada detalhe.</p></li>
+        <li class="reveal"><span class="process-number" aria-hidden="true">06</span><h3>Entrega</h3><p>Sua memória retorna transformada em uma peça única.</p></li>
+      </ol>
+    </section>
+
+    <section class="gallery-section wrap" id="historias" aria-labelledby="gallery-title">
+      <div class="section-heading reveal"><div><span class="eyebrow">Um olhar sobre nossas criações</span><h2 id="gallery-title">Histórias que ganharam<br><em>uma nova forma.</em></h2></div><p>Cada flor chega até o ateliê carregando uma história diferente.</p></div>
+      <div class="gallery">
+        <div class="gallery-col">
+          <figure class="gallery-item tall reveal"><button data-gallery="Assets/image-1.jpeg" data-caption="Buquê de casamento — o início de uma memória" aria-label="Ampliar fotografia de noiva com buquê"><div class="photo"><img src="Assets/image-1.jpeg" width="883" height="670" alt="Buquê de flores rosadas nas mãos de uma noiva" loading="lazy"></div></button><figcaption><span>O início de uma memória</span><span>01</span></figcaption></figure>
+          <figure class="gallery-item short reveal"><button data-gallery="Assets/image-10.jpeg" data-caption="Relógio botânico — flores que acompanham o tempo" aria-label="Ampliar relógio botânico"><div class="photo"><img src="Assets/image-10.jpeg" width="1500" height="1500" alt="Relógio de parede com girassóis e outras flores preservadas" loading="lazy"></div></button><figcaption><span>O tempo, em flores</span><span>02</span></figcaption></figure>
+        </div>
+        <div class="gallery-col">
+          <figure class="gallery-item reveal"><button data-gallery="Assets/image-18.jpg" data-caption="Biojoia botânica — orquídea translúcida" aria-label="Ampliar biojoia de orquídea"><div class="photo"><img src="Assets/image-18.jpg" width="1500" height="1500" alt="Colar com uma orquídea natural translúcida sobre tecido de linho" loading="lazy"></div></button><figcaption><span>Natureza para levar consigo</span><span>03</span></figcaption></figure>
+          <figure class="gallery-item tall reveal"><button data-gallery="Assets/image-20.jpg" data-caption="Cenário de jardim — uma criação botânica iluminada" aria-label="Ampliar peça botânica iluminada"><div class="photo"><img src="Assets/image-20.jpg" width="1273" height="1500" alt="Luminária artesanal em madeira com pequeno cenário botânico preservado" loading="lazy"></div></button><figcaption><span>Um jardim que permanece</span><span>04</span></figcaption></figure>
+        </div>
+        <div class="gallery-col">
+          <figure class="gallery-item reveal"><button data-gallery="Assets/image-7.jpeg" data-caption="Eternização de buquê — uma composição feita para permanecer" aria-label="Ampliar composição de buquê eternizado"><div class="photo crop-art"><img src="Assets/image-7.jpeg" width="1080" height="1350" alt="Peça de resina com flores preservadas de um casamento" loading="lazy"></div></button><figcaption><span>Um buquê, uma história</span><span>05</span></figcaption></figure>
+          <figure class="gallery-item tall reveal"><button data-gallery="Assets/image-4.jpeg" data-caption="Memória em resina — cada detalhe preservado" aria-label="Ampliar girassol preservado"><div class="photo"><img src="Assets/image-4.jpeg" width="953" height="1319" alt="Detalhe de pétalas de um girassol eternizado em resina" loading="lazy"></div></button><figcaption><span>A delicadeza de permanecer</span><span>06</span></figcaption></figure>
+        </div>
+      </div>
+      <div class="gallery-footer reveal"><p>“Cada flor carrega consigo um instante.”</p></div>
+    </section>
+
+    <section class="story-section" id="nossa-historia" aria-labelledby="story-title">
+      <div class="wrap story-layout">
+        <div class="story-copy reveal"><span class="eyebrow line">O universo Cler</span><h2 id="story-title">A natureza passa.<br><em>A memória permanece.</em></h2><p>A Cler Ateliê Botânico é um ateliê autoral especializado na preservação botânica de memórias, transformando flores carregadas de significado em obras únicas que atravessam o tempo.</p><p>Cada criação nasce do encontro entre natureza, sensibilidade, técnica e excelência artesanal. Do primeiro olhar às últimas delicadezas, o cuidado é com a sua história.</p><a class="text-link" href="#contato">Conte a sua história <span class="arrow" aria-hidden="true">↗</span></a></div>
+        <figure class="story-visual reveal"><div class="photo"><img src="Assets/image-insta.png" width="1254" height="1254" alt="Mãos preparando cuidadosamente uma embalagem da Cler Ateliê Botânico" loading="lazy"></div><figcaption class="story-caption">Sensibilidade em cada detalhe.</figcaption></figure>
+      </div>
+    </section>
+    <div class="wrap pillars" aria-label="Os pilares da Cler">
+      <div class="pillar reveal"><span aria-hidden="true">I.</span><div><h3>Natureza</h3><p>Tudo começa com uma flor real.</p></div></div>
+      <div class="pillar reveal"><span aria-hidden="true">II.</span><div><h3>Memória</h3><p>Toda flor pode carregar um momento, uma pessoa ou uma história.</p></div></div>
+      <div class="pillar reveal"><span aria-hidden="true">III.</span><div><h3>Arte</h3><p>Cada lembrança ganha uma nova forma através da sensibilidade e do trabalho artesanal.</p></div></div>
+    </div>
+
+    <section class="section wrap collections" id="colecoes" aria-labelledby="collections-title">
+      <div class="section-heading reveal"><div><span class="eyebrow">Coleções botânicas</span><h2 id="collections-title">A natureza transformada em peças<br>para <em>carregar com você.</em></h2></div><p>Conheça as criações autorais da nossa boutique. Pequenos encontros com a natureza, para vestir ou habitar.</p></div>
+      <div class="collection-tools"><div class="filters" role="group" aria-label="Filtrar criações"><button class="filter-btn" data-filter="all" aria-pressed="true">Todas as criações</button><button class="filter-btn" data-filter="biojoias" aria-pressed="false">Biojoias</button><button class="filter-btn" data-filter="acessorios" aria-pressed="false">Acessórios</button><button class="filter-btn" data-filter="decoracao" aria-pressed="false">Decoração</button></div><span class="collection-count" id="collection-count" aria-live="polite">7 criações autorais</span></div>
+      <div class="products-grid" id="products-grid"></div>
+      <noscript><p>Ative o JavaScript do navegador para explorar as sete criações, os preços e a sacola desta demonstração.</p></noscript>
+      <p class="collection-footnote">Flores naturais tornam cada criação singular. Para preservar as suas próprias flores, <button style="text-decoration:underline;text-underline-offset:3px;padding:0" data-contact="Projeto personalizado">converse com o ateliê sobre um projeto personalizado.</button></p>
+    </section>
+
+    <section class="instagram-section" aria-labelledby="instagram-title">
+      <div class="wrap">
+        <div class="instagram-heading reveal"><div><span class="eyebrow">Entre flores e novos capítulos</span><h2 id="instagram-title">Florescendo <em>por aqui.</em></h2></div><a class="instagram-account" href="https://www.instagram.com/clerateliebotanico" target="_blank" rel="noopener noreferrer"><span class="icon icon-instagram" aria-hidden="true"></span>@clerateliebotanico <span class="arrow" aria-hidden="true">↗</span><span class="small" style="position:absolute;width:1px;height:1px;overflow:hidden">(abre em nova aba)</span></a></div>
+        <div class="instagram-feed">
+          <a class="reveal" href="https://www.instagram.com/clerateliebotanico" target="_blank" rel="noopener noreferrer" aria-label="Ver o ateliê no Instagram (nova aba)"><div class="photo"><img src="Assets/image-17.jpg" alt="Orquídea lilás transformada em colar" width="1080" height="1080" loading="lazy"></div></a>
+          <a class="reveal" href="https://www.instagram.com/clerateliebotanico" target="_blank" rel="noopener noreferrer" aria-label="Ver criações no Instagram (nova aba)"><div class="photo"><img src="Assets/image-4.jpeg" alt="Girassol preservado sob a luz natural" width="953" height="1319" loading="lazy"></div></a>
+          <a class="reveal" href="https://www.instagram.com/clerateliebotanico" target="_blank" rel="noopener noreferrer" aria-label="Ver biojoias no Instagram (nova aba)"><div class="photo"><img src="Assets/image-19.jpg" alt="Conjunto de flores de cerejeira Sakura" width="1193" height="1318" loading="lazy"></div></a>
+          <a class="reveal" href="https://www.instagram.com/clerateliebotanico" target="_blank" rel="noopener noreferrer" aria-label="Ver memórias botânicas no Instagram (nova aba)"><div class="photo"><img src="Assets/image-21.jpg" alt="Peça botânica de madeira iluminada em azul" width="1572" height="1600" loading="lazy"></div></a>
+          <a class="reveal" href="https://www.instagram.com/clerateliebotanico" target="_blank" rel="noopener noreferrer" aria-label="Ver flores da Cler no Instagram (nova aba)"><div class="photo"><img src="Assets/image-16.jpg" alt="Flor de cosmos laranja preservada em um colar" width="1080" height="1080" loading="lazy"></div></a>
+        </div>
+        <div class="instagram-bottom"><p>Um pouco do que nasce no ateliê.</p><a class="text-link" href="https://www.instagram.com/clerateliebotanico" target="_blank" rel="noopener noreferrer">Acompanhar no Instagram <span class="arrow" aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="section wrap faq-layout" id="faq" aria-labelledby="faq-title">
+      <div class="faq-intro reveal"><span class="eyebrow">Antes de começar</span><h2 id="faq-title">Cuidamos das flores.<br><em>E das suas dúvidas.</em></h2><p>Cada projeto tem suas particularidades. Estamos aqui para conversar sobre as suas.</p><button class="text-link" data-contact="Tenho uma dúvida">Fale com o ateliê <span class="arrow" aria-hidden="true">↗</span></button></div>
+      <div class="faq-list reveal">
+        <details><summary>Quanto tempo após o evento devo enviar meu buquê?</summary><p>Converse com o ateliê sobre a data do evento e as condições das flores. Cada projeto é avaliado individualmente, e a orientação de envio é definida durante o atendimento.</p></details>
+        <details><summary>Flores já secas podem ser preservadas?</summary><p>Cada projeto é avaliado individualmente. Entre em contato com o ateliê para verificarmos as condições das flores e indicarmos a melhor possibilidade de preservação.</p></details>
+        <details><summary>Como faço para enviar minhas flores?</summary><p>Entre em contato antes do envio. O ateliê orientará sobre o preparo, a embalagem e a forma de encaminhar suas flores conforme as necessidades do projeto.</p></details>
+        <details><summary>Quanto tempo leva o processo de eternização?</summary><p>Os prazos variam conforme o projeto e a técnica escolhida. O prazo exato é informado durante o atendimento.</p></details>
+        <details><summary>Posso escolher como minhas flores serão transformadas?</summary><p>O projeto é construído a partir da sua história e das suas preferências. Durante a avaliação, conversamos sobre os formatos e as composições possíveis para as suas flores.</p></details>
+        <details><summary>Vocês enviam para todo o Brasil?</summary><p>Consulte o ateliê sobre a disponibilidade e as condições de envio para a sua localidade. As possibilidades são confirmadas no atendimento.</p></details>
+        <details><summary>Como funciona o pagamento?</summary><p>As formas e condições de pagamento são apresentadas pelo ateliê durante o atendimento. As opções de frete e pagamento nesta demonstração são apenas ilustrativas.</p></details>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contato" aria-labelledby="contact-title">
+      <div class="reveal"><span class="eyebrow">Sua história merece continuar</span><h2 id="contact-title">Algumas flores duram alguns dias.<br>As histórias que elas carregam<br><em>podem durar para sempre.</em></h2><p>Conte para a Cler qual memória você gostaria de preservar.</p><div class="contact-actions"><button class="btn btn-light" data-contact="Eternização de buquê">Eternizar minhas flores <span class="arrow" aria-hidden="true">↗</span></button><!-- INSERIR WHATSAPP REAL DA CLER AQUI --><button class="text-link" data-contact="Conversar com o ateliê">Falar com o ateliê <span class="arrow" aria-hidden="true">→</span></button></div></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-top">
+      <div class="footer-brand"><a class="brand" href="#inicio" aria-label="Cler Ateliê Botânico — voltar ao início"><span class="brand-mark"><img src="Assets/logo.jpeg" width="1497" height="1233" alt="" loading="lazy"></span><span class="brand-word"><strong>Cler</strong><small>Ateliê Botânico</small></span></a><p>Preservação Botânica de Memórias.<br>Natureza, sensibilidade e criação autoral.</p></div>
+      <nav class="footer-nav" aria-label="Navegação do rodapé"><a href="#eternizacao">Eternização</a><a href="#nossa-historia">Nossa história</a><a href="#colecoes">Coleções</a><a href="#faq">FAQ</a><a href="#como-funciona">Como funciona</a><a href="https://www.instagram.com/clerateliebotanico" target="_blank" rel="noopener noreferrer">Instagram ↗</a></nav>
+      <div class="footer-social"><span class="eyebrow">Acompanhe o que floresce</span><a class="instagram-account" href="https://www.instagram.com/clerateliebotanico" target="_blank" rel="noopener noreferrer"><span class="icon icon-instagram" aria-hidden="true"></span>@clerateliebotanico</a></div>
+    </div>
+    <div class="wrap footer-bottom"><span>© 2026 Cler Ateliê Botânico.</span><span>Flores que guardam histórias. Arte que preserva memórias.</span></div>
+  </footer>
+
+  <!-- Menu mobile -->
+  <dialog class="drawer" id="mobile-menu" aria-label="Menu principal">
+    <button class="icon-btn dialog-close" data-close aria-label="Fechar menu"><span class="icon icon-close" aria-hidden="true"></span></button>
+    <div class="mobile-nav"><a class="brand" href="#inicio"><span class="brand-mark"><img src="Assets/logo.jpeg" alt="" width="1497" height="1233"></span><span class="brand-word"><strong>Cler</strong><small>Ateliê Botânico</small></span></a><nav aria-label="Navegação mobile"><a href="#eternizacao"><small>01</small>Eternização</a><a href="#colecoes"><small>02</small>Coleções</a><a href="#como-funciona"><small>03</small>Como funciona</a><a href="#nossa-historia"><small>04</small>Nossa história</a><a href="#faq"><small>05</small>Suas dúvidas</a></nav><a href="#contato" class="btn btn-primary">Eternize suas flores <span class="arrow" aria-hidden="true">↗</span></a><a class="instagram-account" href="https://www.instagram.com/clerateliebotanico" target="_blank" rel="noopener noreferrer"><span class="icon icon-instagram" aria-hidden="true"></span>@clerateliebotanico ↗</a></div>
+  </dialog>
+
+  <!-- Detalhe de produto e calculadora local de frete -->
+  <dialog class="product-dialog" id="product-dialog" aria-labelledby="product-title">
+    <button class="icon-btn dialog-close" data-close aria-label="Fechar detalhes do produto"><span class="icon icon-close" aria-hidden="true"></span></button>
+    <div class="product-detail"><div class="detail-photo"><img id="detail-image" alt=""></div><div class="detail-info"><span class="eyebrow" id="detail-category"></span><h2 id="product-title"></h2><span class="detail-price" id="detail-price"></span><p class="detail-description" id="detail-description"></p><dl class="detail-specs" id="detail-specs"></dl><div class="purchase-row"><span>QUANTIDADE</span><div class="quantity-control"><button id="detail-minus" aria-label="Diminuir quantidade">−</button><output id="detail-quantity" aria-label="Quantidade selecionada" aria-live="polite">1</output><button id="detail-plus" aria-label="Aumentar quantidade">+</button></div></div><div class="detail-actions"><button class="btn btn-primary" id="add-to-cart">Adicionar à sacola <span class="arrow" aria-hidden="true">→</span></button><button class="btn btn-outline" id="buy-now">Comprar agora</button></div><form class="shipping-calculator" id="shipping-form" novalidate><label for="product-cep">CALCULE O FRETE</label><div class="shipping-input"><input id="product-cep" name="cep" inputmode="numeric" autocomplete="postal-code" maxlength="9" placeholder="Digite seu CEP" aria-describedby="shipping-result" required><button class="btn btn-outline" id="calculate-shipping" type="submit">Calcular</button></div><div id="shipping-result" class="shipping-result" role="status" aria-live="polite"></div><span class="simulation-note">Frete demonstrativo. Valores e prazos simulados.</span></form></div></div>
+  </dialog>
+
+  <!-- Sacola: somente IDs e quantidades são persistidos localmente. -->
+  <dialog class="drawer" id="cart-dialog" aria-labelledby="cart-title">
+    <div class="drawer-layout"><div class="drawer-heading"><div><h2 id="cart-title">Sua sacola</h2><span class="eyebrow">Um pouco de natureza, com você</span></div><button class="icon-btn" data-close aria-label="Fechar sacola"><span class="icon icon-close" aria-hidden="true"></span></button></div><div class="cart-items" id="cart-items"></div><div class="cart-footer" id="cart-footer"><div class="cart-subtotal"><span>Subtotal</span><strong id="cart-subtotal"></strong></div><p class="small">O frete será simulado na próxima etapa.</p><button class="btn btn-primary" id="start-checkout">Finalizar compra <span class="arrow" aria-hidden="true">→</span></button><button class="continue-shopping" data-close>Continuar comprando</button></div></div>
+  </dialog>
+
+  <!-- Checkout inteiramente demonstrativo. Nenhum dado é enviado ou salvo. -->
+  <dialog class="checkout-dialog" id="checkout-dialog" aria-labelledby="checkout-title">
+    <button class="icon-btn dialog-close" data-close aria-label="Fechar checkout"><span class="icon icon-close" aria-hidden="true"></span></button>
+    <div class="checkout-container" id="checkout-content">
+      <div class="checkout-heading"><span class="eyebrow">Coleções Cler</span><h2 id="checkout-title">Quase com você.</h2><p>Checkout demonstrativo. Use dados fictícios: nada será enviado e nenhuma cobrança será feita.</p></div>
+      <form id="checkout-form">
+        <div class="checkout-grid"><div>
+          <fieldset><legend>Seus dados</legend><div class="fields"><div class="field full"><label for="checkout-name">Nome completo</label><input id="checkout-name" name="name" autocomplete="off" placeholder="Seu nome" required maxlength="100"></div><div class="field"><label for="checkout-email">E-mail</label><input id="checkout-email" name="email" type="email" autocomplete="off" placeholder="nome@exemplo.com" required maxlength="120"></div><div class="field"><label for="checkout-phone">Telefone</label><input id="checkout-phone" name="phone" type="tel" inputmode="tel" autocomplete="off" placeholder="(00) 00000-0000" required maxlength="15" pattern="\(?[0-9]{2}\)?\s?[0-9]{4,5}-?[0-9]{4}"></div></div></fieldset>
+          <fieldset><legend>Onde entregar</legend><div class="fields"><div class="field"><label for="checkout-cep">CEP</label><input id="checkout-cep" name="cep" inputmode="numeric" autocomplete="off" placeholder="00000-000" required maxlength="9" pattern="[0-9]{5}-?[0-9]{3}"></div><div class="field"><label for="checkout-state">Estado</label><select id="checkout-state" name="state" required><option value="">Selecione</option></select></div><div class="field full"><label for="checkout-address">Endereço</label><input id="checkout-address" name="address" autocomplete="off" placeholder="Rua ou avenida" required maxlength="160"></div><div class="field"><label for="checkout-number">Número</label><input id="checkout-number" name="number" autocomplete="off" placeholder="Número ou s/n" required maxlength="15"></div><div class="field"><label for="checkout-extra">Complemento <span class="optional">(opcional)</span></label><input id="checkout-extra" name="extra" autocomplete="off" placeholder="Apto., bloco…" maxlength="80"></div><div class="field full"><label for="checkout-city">Cidade</label><input id="checkout-city" name="city" autocomplete="off" placeholder="Sua cidade" required maxlength="100"></div></div></fieldset>
+          <fieldset><legend>Forma de entrega</legend><div id="checkout-shipping-options"></div><p class="simulation-note">Valores e prazos simulados para esta demonstração.</p></fieldset>
+          <fieldset><legend>Forma de pagamento</legend><label class="choice"><input type="radio" name="payment" value="pix" checked><span>PIX<small>Simulação, sem geração de cobrança</small></span></label><label class="choice"><input type="radio" name="payment" value="card"><span>Cartão de crédito<small>Somente representação visual</small></span></label><div class="mock-card" id="mock-card" hidden aria-label="Cartão ilustrativo, sem campos para dados reais"><span class="eyebrow">Cartão de demonstração</span><div class="card-fields"><span>•••• •••• •••• 0000</span></div><div class="card-fields"><span>NOME ILUSTRATIVO</span><span>MM/AA · •••</span></div><p>Não solicitamos nem processamos dados de cartão.</p></div></fieldset>
+        </div><aside class="checkout-summary" aria-labelledby="summary-title"><h3 id="summary-title">Sua seleção</h3><div id="summary-products"></div><div class="summary-totals"><div><span>Produtos</span><span id="summary-subtotal"></span></div><div><span>Frete <small>(simulado)</small></span><span id="summary-shipping"></span></div><div class="grand-total"><strong>Total</strong><strong id="summary-total" aria-live="polite"></strong></div></div><button class="btn btn-primary" type="submit">Finalizar pedido <span class="arrow" aria-hidden="true">→</span></button><p class="simulation-note">Este pedido é uma simulação. Nenhuma compra ou cobrança real será realizada.</p><button type="button" class="continue-shopping" id="back-to-cart">Voltar à sacola</button></aside></div>
+      </form>
+    </div>
+    <div class="success-content" id="checkout-success" hidden tabindex="-1"><span class="success-symbol" aria-hidden="true">✓</span><span class="eyebrow">Demonstração concluída</span><h2>Seu pedido foi registrado neste mockup.</h2><p>Nenhuma cobrança foi feita e nenhum dado foi enviado. Obrigada por conhecer as criações da Cler.</p><button class="btn btn-primary" data-close>Continuar explorando <span class="arrow" aria-hidden="true">→</span></button></div>
+  </dialog>
+
+  <!-- Contato local: prepara um texto para copiar; nunca envia automaticamente. -->
+  <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-dialog-title">
+    <button class="icon-btn dialog-close" data-close aria-label="Fechar contato"><span class="icon icon-close" aria-hidden="true"></span></button>
+    <div class="contact-dialog-content"><span class="eyebrow">Toda memória começa com uma conversa</span><h2 id="contact-dialog-title">Que história você<br>gostaria de <em>preservar?</em></h2><p>Conte um pouco sobre suas flores. Vamos preparar uma mensagem para você compartilhar com o ateliê.</p><form id="contact-form"><div class="fields"><div class="field"><label for="contact-name">Seu nome</label><input id="contact-name" name="name" placeholder="Como podemos chamar você?" required maxlength="80" autocomplete="off"></div><div class="field"><label for="contact-interest">Quero conversar sobre</label><select id="contact-interest" name="interest"><option>Eternização de buquê</option><option>Projeto personalizado</option><option>Tenho uma dúvida</option><option>Conversar com o ateliê</option></select></div><div class="field full"><label for="contact-story">Sua história ou dúvida</label><textarea id="contact-story" name="story" placeholder="Quais flores, qual momento ou qual lembrança você gostaria de guardar?" required maxlength="2000"></textarea></div></div><button class="btn btn-primary" type="submit">Preparar minha mensagem <span class="arrow" aria-hidden="true">→</span></button><span class="simulation-note">Contato demonstrativo. As informações ficam apenas nesta tela e não são enviadas.</span></form><div class="contact-result" id="contact-result" hidden><p>Sua mensagem está pronta para copiar. Nada foi enviado: você pode compartilhá-la ao conversar com <strong>@clerateliebotanico</strong>.</p><blockquote id="contact-preview" tabindex="0"></blockquote><button class="btn btn-primary" id="copy-message">Copiar mensagem <span class="arrow" aria-hidden="true">→</span></button><a class="btn btn-outline" href="https://www.instagram.com/clerateliebotanico" target="_blank" rel="noopener noreferrer">Abrir Instagram da Cler <span class="arrow" aria-hidden="true">↗</span></a><button class="continue-shopping" id="edit-message">Editar mensagem</button><span id="copy-feedback" class="simulation-note" role="status"></span></div></div>
+  </dialog>
+
+  <dialog class="lightbox" id="gallery-dialog" aria-labelledby="lightbox-caption"><button class="icon-btn dialog-close" data-close aria-label="Fechar fotografia"><span class="icon icon-close" aria-hidden="true"></span></button><figure><img id="lightbox-image" alt=""><figcaption id="lightbox-caption"></figcaption></figure></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- JavaScript — Sem bibliotecas, backend, APIs de frete ou envio de dados. -->
+  <script>
+    'use strict';
+    (() => {
+      const $ = (selector, root = document) => root.querySelector(selector);
+      const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+      const money = cents => (cents / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+      const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+
+      // FONTES COMERCIAIS: precos e extrar.txt e image-and-price*.png.
+      // Preços em centavos para evitar erros de arredondamento.
+      // O relógio de bordo japonês tem preço informado, mas não fotografia correspondente:
+      // image-10.jpeg mostra girassóis, por isso integra apenas o portfólio.
+      const PRODUCTS = [
+        { id:'girassol', name:'Colar Girassol 3D', group:'biojoias', category:'Biojoia botânica', price:17990, image:'Assets/image-15.jpg', alt:'Colar de girassol amarelo com cordão trançado sobre madeira', description:'A presença do girassol em uma biojoia que guarda a forma e os detalhes da flor. Um pequeno encontro com a natureza para acompanhar os seus dias.', specs:[['Cordão','Encerado ajustável, trançado'],['Comprimento','80 cm'],['Pingente','7 cm']] },
+        { id:'cosmos', name:'Colar Flor de Cosmos Laranja', group:'biojoias', category:'Biojoia botânica', price:12990, image:'Assets/image-16.jpg', alt:'Colar com flor de cosmos laranja e corrente em aço inox', description:'Uma flor de cosmos laranja preservada em sua delicadeza e transformada em colar. Cor e natureza em uma criação autoral.', specs:[['Corrente','Aço inox'],['Comprimento','45 cm'],['Pingente','4 cm']] },
+        { id:'orquidea-lilas', name:'Colar Flor de Orquídea Lilás', group:'biojoias', category:'Biojoia botânica', price:13990, image:'Assets/image-17.jpg', alt:'Colar de orquídea lilás sobre fundo verde suave', description:'A forma singular da orquídea lilás em uma peça botânica para levar consigo. Cada detalhe celebra a beleza da flor.', specs:[['Corrente','Aço inox'],['Comprimento','45 cm'],['Pingente','4 cm']] },
+        { id:'orquidea-translucida', name:'Colar Orquídea Translúcida', group:'biojoias', category:'Biojoia botânica', price:14999, image:'Assets/image-18.jpg', alt:'Colar com orquídea translúcida e centro amarelado sobre linho', description:'A delicadeza de uma orquídea translúcida, preservada em uma biojoia de presença suave. Uma criação que revela a flor em seus pequenos detalhes.', specs:[['Corrente','Aço inox'],['Comprimento','45 cm'],['Pingente','5 cm']] },
+        { id:'sakura', name:'Conjunto Cerejeira Sakura 3D', group:'biojoias', category:'Conjunto botânico', price:29000, image:'Assets/image-19.jpg', alt:'Conjunto de colar e brincos com flores rosadas de cerejeira Sakura', description:'Flores de cerejeira Sakura em um conjunto de colar e brincos. Delicadeza botânica em peças que se encontram na mesma composição.', specs:[['Inclui','Colar e par de brincos'],['Corrente','Prata 925 · 45 cm'],['Brincos','Base tarraxa em prata 925']] },
+        { id:'presilha', name:'Presilha com Flores Naturais', group:'acessorios', category:'Acessório botânico', price:12000, image:'Assets/image-14.jpg', alt:'Referência de presilhas com pequenas flores naturais e exemplos de uso no cabelo', description:'Flores naturais diversas em uma presilha delicada para compor o cabelo. A fotografia apresenta referências de composições; o valor corresponde a uma presilha.', specs:[['Base','Bico de pato em metal'],['Flores','Naturais diversas'],['Tamanho','7 cm'],['Unidade','1 presilha']] },
+        { id:'luminaria', name:'Luminária Cenário de Jardim', group:'decoracao', category:'Decoração botânica', price:45000, image:'Assets/image-20.jpg', alt:'Luminária com base em madeira e flores em um pequeno cenário de jardim', description:'Um pequeno cenário de jardim ganha luz e presença em uma peça decorativa botânica. Madeira e elementos naturais em uma composição para habitar os seus espaços.', specs:[['Base','Madeira'],['Dimensões','30 × 20 cm']] }
+      ];
+      const productById = new Map(PRODUCTS.map(product => [product.id, product]));
+
+      // SIMULAÇÃO DE FRETE: altere estes valores para ajustar toda a demonstração.
+      // Validação de CEP é apenas de formato (8 números); não consulta endereços.
+      const MOCK_SHIPPING = [
+        { id:'pac', name:'PAC', cents:1890, deadline:'5 a 8 dias úteis' },
+        { id:'sedex', name:'SEDEX', cents:3140, deadline:'2 a 4 dias úteis' }
+      ];
+      const SHIPPING_DELAY_MS = 600;
+      const STORAGE_KEY = 'cler.boutique.cart.v1';
+      const MAX_QUANTITY = 99;
+      const digits = value => String(value).replace(/\D/g, '');
+      const validCEP = value => /^\d{8}$/.test(digits(value));
+      const normalizeCart = value => {
+        if (!Array.isArray(value)) return [];
+        const normalized = new Map();
+        for (const row of value) {
+          if (!row || !productById.has(row.id) || !Number.isSafeInteger(row.quantity) || row.quantity < 1) continue;
+          normalized.set(row.id, Math.min(MAX_QUANTITY, (normalized.get(row.id) || 0) + row.quantity));
+        }
+        return [...normalized].map(([id, quantity]) => ({id, quantity}));
+      };
+      let cart = [];
+      try { cart = normalizeCart(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')); } catch { cart = []; }
+      let selectedProduct = null;
+      let selectedQuantity = 1;
+      let selectedShipping = 'pac';
+      let shippingTimer;
+      let shippingRequest = 0;
+      let toastTimer;
+      let storageWarningShown = false;
+      const subtotal = () => cart.reduce((sum, item) => sum + productById.get(item.id).price * item.quantity, 0);
+      const itemCount = () => cart.reduce((sum, item) => sum + item.quantity, 0);
+
+      function showToast(message) {
+        const toast = $('#toast');
+        toast.textContent = message;
+        toast.classList.add('visible');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove('visible'), 3500);
+      }
+      function saveCart() {
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); }
+        catch {
+          if (!storageWarningShown) {
+            storageWarningShown = true;
+            showToast('Seu navegador não permitiu salvar a sacola. Ela funciona enquanto esta página estiver aberta.');
+          }
+        }
+        renderCart();
+      }
+
+      // Um único diálogo por vez. O <dialog> nativo trata foco, Tab e Escape.
+      const dialogOrigins = new WeakMap();
+      function openDialog(dialog, origin = document.activeElement) {
+        const previouslyOpen = $('dialog[open]');
+        const returnTo = previouslyOpen ? (dialogOrigins.get(previouslyOpen) || origin) : origin;
+        if (previouslyOpen) previouslyOpen.close();
+        dialogOrigins.set(dialog, returnTo);
+        dialog.showModal();
+        dialog.scrollTop = 0;
+        document.body.classList.add('locked');
+        $('#open-menu').setAttribute('aria-expanded', String(dialog.id === 'mobile-menu'));
+      }
+      $$('dialog').forEach(dialog => {
+        dialog.addEventListener('close', () => {
+          if (!$('dialog[open]')) {
+            document.body.classList.remove('locked');
+            const origin = dialogOrigins.get(dialog);
+            if (origin?.isConnected) origin.focus({preventScroll:true});
+          }
+          $('#open-menu').setAttribute('aria-expanded', String($('#mobile-menu').open));
+          if (dialog.id === 'product-dialog') resetShipping();
+          if (dialog.id === 'checkout-dialog') $('#checkout-form').reset();
+          if (dialog.id === 'contact-dialog') {
+            $('#contact-form').reset();
+            $('#contact-preview').textContent = '';
+          }
+        });
+        let startedOnBackdrop = false;
+        dialog.addEventListener('pointerdown', event => { startedOnBackdrop = event.target === dialog; });
+        dialog.addEventListener('click', event => {
+          if (event.target !== dialog || !startedOnBackdrop) return;
+          const bounds = dialog.getBoundingClientRect();
+          if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
+        });
+      });
+      document.addEventListener('click', event => {
+        const close = event.target.closest('[data-close]');
+        if (close) close.closest('dialog').close();
+        const contact = event.target.closest('[data-contact]');
+        if (contact) openContact(contact.dataset.contact);
+        const gallery = event.target.closest('[data-gallery]');
+        if (gallery) {
+          $('#lightbox-image').src = gallery.dataset.gallery;
+          $('#lightbox-image').alt = gallery.dataset.caption;
+          $('#lightbox-caption').textContent = gallery.dataset.caption;
+          openDialog($('#gallery-dialog'), gallery);
+        }
+      });
+      $('#open-menu').addEventListener('click', () => openDialog($('#mobile-menu')));
+      $$('#mobile-menu a[href^="#"]').forEach(link => link.addEventListener('click', () => $('#mobile-menu').close()));
+      $('#open-cart').addEventListener('click', () => { renderCart(); openDialog($('#cart-dialog')); });
+
+      const collectionInvite = `<aside class="collection-invite"><span class="brand-mark"><img src="Assets/logo.jpeg" alt="" loading="lazy"></span><h3>As suas flores.<br><em>A sua história.</em></h3><p>Transforme uma memória especial em uma criação só sua.</p><button class="text-link" data-contact="Projeto personalizado">Criar com o ateliê <span class="arrow" aria-hidden="true">↗</span></button></aside>`;
+      function renderProducts(filter = 'all') {
+        const products = PRODUCTS.filter(product => filter === 'all' || product.group === filter);
+        $('#products-grid').innerHTML = products.map(product => `<article class="product-card"><button data-product="${product.id}" aria-label="Ver ${escapeHTML(product.name)}, ${money(product.price)}" aria-haspopup="dialog"><div class="product-image"><img src="${product.image}" alt="${escapeHTML(product.alt)}" loading="lazy" width="600" height="720"><span class="product-open" aria-hidden="true">+</span></div><span class="product-category">${product.category}</span><h3>${product.name}</h3><span class="product-price">${money(product.price)}</span></button></article>`).join('') + (filter === 'all' ? collectionInvite : '');
+        $('#collection-count').textContent = `${products.length} ${products.length === 1 ? 'criação autoral' : 'criações autorais'}`;
+      }
+      $$('.filter-btn').forEach(button => button.addEventListener('click', () => {
+        $$('.filter-btn').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+        renderProducts(button.dataset.filter);
+      }));
+      $('#products-grid').addEventListener('click', event => {
+        const button = event.target.closest('[data-product]');
+        if (button) openProduct(button.dataset.product, button);
+      });
+      function updateProductQuantity() {
+        $('#detail-quantity').value = selectedQuantity;
+        $('#detail-minus').disabled = selectedQuantity <= 1;
+        $('#detail-plus').disabled = selectedQuantity >= MAX_QUANTITY;
+      }
+      function openProduct(id, origin) {
+        selectedProduct = productById.get(id);
+        if (!selectedProduct) return;
+        selectedQuantity = 1;
+        $('#detail-image').src = selectedProduct.image;
+        $('#detail-image').alt = selectedProduct.alt;
+        $('#detail-category').textContent = selectedProduct.category;
+        $('#product-title').textContent = selectedProduct.name;
+        $('#detail-price').textContent = money(selectedProduct.price);
+        $('#detail-description').textContent = selectedProduct.description;
+        $('#detail-specs').innerHTML = selectedProduct.specs.map(([key,value]) => `<div><dt>${escapeHTML(key)}</dt><dd>${escapeHTML(value)}</dd></div>`).join('');
+        updateProductQuantity();
+        resetShipping();
+        $('#shipping-form').reset();
+        openDialog($('#product-dialog'), origin);
+      }
+      $('#detail-minus').addEventListener('click', () => { selectedQuantity = Math.max(1, selectedQuantity - 1); updateProductQuantity(); });
+      $('#detail-plus').addEventListener('click', () => { selectedQuantity = Math.min(MAX_QUANTITY, selectedQuantity + 1); updateProductQuantity(); });
+      function addSelectedProduct() {
+        if (!selectedProduct) return false;
+        const existing = cart.find(item => item.id === selectedProduct.id);
+        if ((existing?.quantity || 0) + selectedQuantity > MAX_QUANTITY) {
+          showToast('O limite demonstrativo é de 99 unidades por criação. Ajuste a quantidade na sacola.');
+          return false;
+        }
+        if (existing) existing.quantity += selectedQuantity;
+        else cart.push({id:selectedProduct.id,quantity:selectedQuantity});
+        saveCart();
+        return true;
+      }
+      $('#add-to-cart').addEventListener('click', () => {
+        if (!addSelectedProduct()) return;
+        openDialog($('#cart-dialog'));
+        showToast('Criação adicionada à sua sacola.');
+      });
+      $('#buy-now').addEventListener('click', () => { if (addSelectedProduct()) openCheckout(); });
+
+      function renderCart() {
+        const count = itemCount();
+        $('#bag-count').textContent = count;
+        $('#open-cart').setAttribute('aria-label', `Abrir sacola, ${count} ${count === 1 ? 'item' : 'itens'}`);
+        $('#cart-subtotal').textContent = money(subtotal());
+        $('#cart-footer').hidden = cart.length === 0;
+        if (!cart.length) {
+          $('#cart-items').innerHTML = '<div class="cart-empty"><span class="icon icon-bag" aria-hidden="true"></span><h3>Sua próxima história<br>ainda está por aqui.</h3><p>Explore as criações botânicas e encontre aquela que conversa com você.</p><button class="btn btn-outline" id="empty-browse">Conhecer as criações <span class="arrow" aria-hidden="true">→</span></button></div>';
+          $('#empty-browse').addEventListener('click', () => { $('#cart-dialog').close(); $('#colecoes').scrollIntoView({behavior:scrollBehavior()}); });
+          return;
+        }
+        $('#cart-items').innerHTML = cart.map(item => {
+          const product = productById.get(item.id);
+          return `<article class="cart-item"><img src="${product.image}" alt="${escapeHTML(product.alt)}"><div><h3>${product.name}</h3><span class="cart-item-price">${money(product.price * item.quantity)}${item.quantity > 1 ? ` <span class="muted">(${money(product.price)} un.)</span>` : ''}</span><div class="cart-item-actions"><div class="quantity-control"><button data-cart-action="decrease" data-id="${item.id}" aria-label="Diminuir quantidade de ${escapeHTML(product.name)}" ${item.quantity <= 1 ? 'disabled' : ''}>−</button><output aria-label="Quantidade de ${escapeHTML(product.name)}">${item.quantity}</output><button data-cart-action="increase" data-id="${item.id}" aria-label="Aumentar quantidade de ${escapeHTML(product.name)}" ${item.quantity >= MAX_QUANTITY ? 'disabled' : ''}>+</button></div><button class="remove-item" data-cart-action="remove" data-id="${item.id}" aria-label="Remover ${escapeHTML(product.name)} da sacola">Remover</button></div></div></article>`;
+        }).join('');
+      }
+      $('#cart-items').addEventListener('click', event => {
+        const button = event.target.closest('[data-cart-action]');
+        if (!button) return;
+        const item = cart.find(row => row.id === button.dataset.id);
+        if (!item) return;
+        const action = button.dataset.cartAction;
+        const id = item.id;
+        if (action === 'remove') cart = cart.filter(row => row.id !== id);
+        if (action === 'increase') item.quantity = Math.min(MAX_QUANTITY, item.quantity + 1);
+        if (action === 'decrease') item.quantity = Math.max(1, item.quantity - 1);
+        saveCart();
+        const replacement = $(`[data-id="${id}"][data-cart-action="${action}"]:not(:disabled)`)
+          || $(`[data-id="${id}"][data-cart-action]:not(:disabled)`)
+          || $('#cart-items button') || $('#cart-dialog [data-close]');
+        replacement?.focus({preventScroll:true});
+      });
+
+      function resetShipping() {
+        clearTimeout(shippingTimer);
+        shippingRequest++;
+        $('#shipping-result').textContent = '';
+        $('#product-cep').removeAttribute('aria-invalid');
+        $('#calculate-shipping').disabled = false;
+      }
+      function maskCEP(input) {
+        const value = digits(input.value).slice(0,8);
+        input.value = value.length > 5 ? `${value.slice(0,5)}-${value.slice(5)}` : value;
+      }
+      ['#product-cep','#checkout-cep'].forEach(selector => $(selector).addEventListener('input', event => {
+        maskCEP(event.target);
+        if (selector === '#product-cep') resetShipping();
+      }));
+      $('#checkout-phone').addEventListener('input', event => {
+        const value = digits(event.target.value).slice(0,11);
+        event.target.value = value.length > 6 ? `(${value.slice(0,2)}) ${value.slice(2,value.length > 10 ? 7 : 6)}-${value.slice(value.length > 10 ? 7 : 6)}` : value.length > 2 ? `(${value.slice(0,2)}) ${value.slice(2)}` : value;
+      });
+      $('#shipping-form').addEventListener('submit', event => {
+        event.preventDefault();
+        const cep = $('#product-cep');
+        resetShipping();
+        if (!validCEP(cep.value)) {
+          $('#shipping-result').innerHTML = '<span class="error">Digite um CEP com 8 números.</span>';
+          cep.setAttribute('aria-invalid','true');
+          cep.focus();
+          return;
+        }
+        const requestId = shippingRequest;
+        $('#calculate-shipping').disabled = true;
+        $('#shipping-result').innerHTML = '<span class="loading-dot" aria-hidden="true"></span>Calculando frete demonstrativo…';
+        shippingTimer = setTimeout(() => {
+          if (requestId !== shippingRequest) return;
+          $('#shipping-result').innerHTML = MOCK_SHIPPING.map(option => `<div class="shipping-option"><div><strong>${option.name}</strong><br><span>${option.deadline}</span></div><strong>${money(option.cents)}</strong></div>`).join('');
+          $('#calculate-shipping').disabled = false;
+        }, SHIPPING_DELAY_MS);
+      });
+
+      const states = ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'];
+      $('#checkout-state').insertAdjacentHTML('beforeend', states.map(state => `<option value="${state}">${state}</option>`).join(''));
+      function renderSummary() {
+        const shipping = MOCK_SHIPPING.find(option => option.id === selectedShipping) || MOCK_SHIPPING[0];
+        $('#summary-products').innerHTML = cart.map(item => {
+          const product = productById.get(item.id);
+          return `<div class="summary-product"><img src="${product.image}" alt=""><span>${product.name}<small>Quantidade: ${item.quantity}</small></span><strong>${money(product.price * item.quantity)}</strong></div>`;
+        }).join('');
+        $('#summary-subtotal').textContent = money(subtotal());
+        $('#summary-shipping').textContent = money(shipping.cents);
+        $('#summary-total').textContent = money(subtotal() + shipping.cents);
+      }
+      function openCheckout() {
+        if (!cart.length) { showToast('Escolha uma criação antes de continuar.'); return; }
+        $('#checkout-form').reset();
+        $('#checkout-content').hidden = false;
+        $('#checkout-success').hidden = true;
+        $('#checkout-dialog').setAttribute('aria-labelledby','checkout-title');
+        $('#mock-card').hidden = true;
+        selectedShipping = 'pac';
+        $('#checkout-shipping-options').innerHTML = MOCK_SHIPPING.map((option,index) => `<label class="choice"><input type="radio" name="shipping" value="${option.id}" ${index === 0 ? 'checked' : ''}><span>${option.name}<small>${option.deadline}</small></span><strong>${money(option.cents)}</strong></label>`).join('');
+        renderSummary();
+        openDialog($('#checkout-dialog'));
+      }
+      $('#start-checkout').addEventListener('click', openCheckout);
+      $('#back-to-cart').addEventListener('click', () => { renderCart(); openDialog($('#cart-dialog')); });
+      $('#checkout-form').addEventListener('change', event => {
+        if (event.target.name === 'shipping') { selectedShipping = event.target.value; renderSummary(); }
+        if (event.target.name === 'payment') $('#mock-card').hidden = event.target.value !== 'card';
+      });
+      $('#checkout-form').addEventListener('submit', event => {
+        event.preventDefault();
+        if (!event.currentTarget.reportValidity()) return;
+        if (!cart.length) { showToast('Sua sacola está vazia.'); return; }
+        // Não há fetch, transmissão, cobrança ou persistência de dados pessoais.
+        cart = [];
+        saveCart();
+        event.currentTarget.reset();
+        $('#checkout-content').hidden = true;
+        $('#checkout-success').hidden = false;
+        $('#checkout-dialog').setAttribute('aria-labelledby','checkout-success');
+        $('#checkout-dialog').scrollTop = 0;
+        $('#checkout-success').focus({preventScroll:true});
+      });
+
+      function openContact(interest) {
+        $('#contact-form').hidden = false;
+        $('#contact-result').hidden = true;
+        $('#contact-form').reset();
+        $('#copy-feedback').textContent = '';
+        if ($$('#contact-interest option').some(option => option.value === interest)) $('#contact-interest').value = interest;
+        openDialog($('#contact-dialog'));
+      }
+      $('#contact-form').addEventListener('submit', event => {
+        event.preventDefault();
+        if (!event.currentTarget.reportValidity()) return;
+        const name = $('#contact-name').value.trim();
+        const story = $('#contact-story').value.trim();
+        if (!name || !story) { showToast('Preencha seu nome e sua história.'); return; }
+        $('#contact-preview').textContent = `Olá, Cler! Meu nome é ${name}.\nGostaria de conversar sobre: ${$('#contact-interest').value.toLowerCase()}.\n\n${story}`;
+        $('#contact-form').hidden = true;
+        $('#contact-result').hidden = false;
+        $('#contact-preview').focus();
+      });
+      $('#edit-message').addEventListener('click', () => {
+        $('#contact-form').hidden = false;
+        $('#contact-result').hidden = true;
+        $('#contact-story').focus();
+      });
+      $('#copy-message').addEventListener('click', async () => {
+        const message = $('#contact-preview').textContent;
+        let copied = false;
+        try {
+          if (navigator.clipboard && window.isSecureContext) { await navigator.clipboard.writeText(message); copied = true; }
+        } catch { /* file:// ou permissão indisponível: usar cópia local abaixo. */ }
+        if (!copied) {
+          const area = document.createElement('textarea');
+          area.value = message;
+          area.setAttribute('readonly','');
+          area.style.cssText = 'position:fixed;left:0;top:0;opacity:0;width:1px;height:1px;';
+          $('#contact-dialog').append(area);
+          area.select();
+          try { copied = document.execCommand('copy'); } catch { copied = false; }
+          area.remove();
+          $('#copy-message').focus();
+        }
+        $('#copy-feedback').textContent = copied ? 'Mensagem copiada. Você pode colá-la na conversa com o ateliê.' : 'Selecione o texto da mensagem acima e copie manualmente.';
+      });
+
+      // Sincroniza somente a sacola quando outra aba altera o armazenamento.
+      window.addEventListener('storage', event => {
+        if (event.key !== STORAGE_KEY && event.key !== null) return;
+        try { cart = normalizeCart(JSON.parse(event.newValue || '[]')); } catch { cart = []; }
+        renderCart();
+        if ($('#checkout-dialog').open && !$('#checkout-content').hidden) {
+          if (cart.length) renderSummary();
+          else { openDialog($('#cart-dialog')); showToast('A sacola foi atualizada em outra aba.'); }
+        }
+      });
+
+      function scrollBehavior() { return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'; }
+      const updateHeader = () => $('#site-header').classList.toggle('scrolled', window.scrollY > 20);
+      window.addEventListener('scroll', updateHeader, {passive:true});
+      updateHeader();
+      renderProducts();
+      renderCart();
+      if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('motion');
+        const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+        }), {threshold:0.08,rootMargin:'0px 0px -20px 0px'});
+        $$('.reveal').forEach(element => observer.observe(element));
+      }
+    })();
+  </script>
+</body>
+</html>
